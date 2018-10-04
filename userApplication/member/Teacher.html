@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="member.css">
+</head>
+<body>
+
+<div class="table_content">
+    <h4 class="title card-title" align="center">Teacher Information</h4>
+    <table id="teacher_membertable" align="center" class="position_table table-bordered table-sm">
+        <tr>
+            <th class="info" style="width:20%">&nbsp;&nbsp;ID</th>
+            <td class="memberinput">
+                <input id="teacher_member_id" class="form-control-sm" type="text" name="id" value="">
+                <!--<input type="button" name="" value="중복확인" class="inputbtn" onclick="checkId(document.join.id.value);">-->
+            </td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Password</th>
+            <td class="memberinput">
+                <input type="password" class="form-control-sm" name="password">
+            </td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Name</th>
+            <td class="memberinput"> <input type="text"  class="form-control-sm" name="name"></td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Tel</th>
+            <td >
+                <select id="teacher_select1" name="tel" class="memberinput">
+                    <option value="">::Choice::</option>
+                    <option value="011">011</option>
+                    <option value="017">017</option>
+                    <option value="019">019</option>
+                    <option value="010">010</option>
+                </select> -
+                <input type="text" id="teacher_txtMobile2" class="form-control-sm" size="4" name="tel2" onkeyup="checkNumber(tel2)" maxlength="4"/> -
+                <input type="text" id="teacher_txtMobile3" class="form-control-sm" size="4" name="tel3" onkeyup="checkNumber(tel3)" maxlength="4"/>
+            </td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Final Education</th>
+            <td class="memberinput">
+                University <input class="form-control-sm" type="text" name="university">
+                Major <input class="form-control-sm" type="text" name="major"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Degree <select id="teacher_select2" name="education" class="form-control-sm">
+                    <option value="">::Choice::</option>
+                    <option value="bachelor1grade">Bachelor 1 Grade</option>
+                    <option value="bachelor2grade">Bachelor 2 Grade</option>
+                    <option value="bachelor3grade">Bachelor 3 Grade</option>
+                    <option value="bachelor4grade">Bachelor 4 Grade</option>
+                    <option value="master1grade">Master 1 Grade</option>
+                    <option value="master2grade">Master 2 Grade</option>
+                    <option value="Graduated">Graduated</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Career</th>
+            <td class="memberinput"><input id="teacher_career" class="form-control-sm" type="text" value=""></td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Hope Course</th>
+            <td class="memberinput"><select name="course1" class="form-control-sm">
+                <option value="수학" style="color:">수학</option>
+                <option value="국어" style="color:">국어</option>
+                <option value="과학" style="color:">과학</option>
+                <option value="국사" style="color:">국사</option>
+                <option value="화학" style="color:">화학</option>
+                <option value="물리" style="color:">물리</option>
+                <option value="논술" style="color:">논술</option>
+                <option value="사회" style="color:">사회</option>
+                <option value="미술" style="color:#0abaca">미술</option>
+                <option value="피아노" style="color:#0abaca">피아노</option>
+                <option value="바이올린" style="color:#0abaca">바이올린</option>
+                <option value="첼로" style="color:#0abaca">첼로</option>
+                <option value="보컬" style="color:#0abaca">보컬</option>
+                <option value="기타(악기)" style="color:#0abaca">기타(악기)</option>
+                <option value="플롯" style="color:#0abaca">플롯</option>
+                <option value="성악" style="color:#0abaca">성악</option>
+                <option value="연기" style="color:#0abaca">연기</option>
+                <option value="무용" style="color:#0abaca">무용</option>
+                <option value="음악" style="color:#0abaca">음악</option>
+                <option value="예능" style="color:#0abaca">예능</option>
+                <option value="체능" style="color:">체능</option>
+                <option value="회계" style="color:">회계</option>
+                <option value="문예창작" style="color:">문예창작</option>
+                <option value="컴퓨터" style="color:">컴퓨터</option>
+                <option value="세계" style="color:">세계</option>
+                <option value="특수교육" style="color:">특수교육</option>
+                <option value="한문" style="color:">한문</option>
+                <option value="테니스" style="color:">테니스</option>
+                <option value="기타과목" style="color:">기타과목</option>
+                <option value="영어" style="color:#ff4f52">영어</option>
+                <option value="토익" style="color:#ff4f52">토익</option>
+                <option value="토플" style="color:#ff4f52">토플</option>
+                <option value="탭스" style="color:#ff4f52">탭스</option>
+                <option value="영어회화" style="color:#ff4f52">영어회화</option>
+                <option value="중국어" style="color:#ff4f52">중국어</option>
+                <option value="중국어회화" style="color:#ff4f52">중국어회화</option>
+                <option value="HSK" style="color:#ff4f52">HSK</option>
+                <option value="일어" style="color:#ff4f52">일어</option>
+                <option value="일본어회화" style="color:#ff4f52">일본어회화</option>
+                <option value="JLPT" style="color:#ff4f52">JLPT</option>
+                <option value="러시아어" style="color:#ff4f52">러시아어</option>
+                <option value="스페인" style="color:#ff4f52">스페인</option>
+                <option value="불어" style="color:#ff4f52">불어</option>
+                <option value="독어" style="color:#ff4f52">독어</option>
+                <option value="캄보디아어" style="color:#ff4f52">캄보디아어</option>
+                <option value="이탈리아어" style="color:#ff4f52">이탈리아어</option>
+                <option value="베트남어" style="color:#ff4f52">베트남어</option>
+                <option value="인도어" style="color:#ff4f52">인도어</option>
+                <option value="아랍어" style="color:#ff4f52">아랍어</option>
+                <option value="인도네시아" style="color:#ff4f52">인도네시아</option>
+                <option value="터키어" style="color:#ff4f52">터키어</option>
+                <option value="몽골어" style="color:#ff4f52">몽골어</option>
+                <option value="태국어" style="color:#ff4f52">태국어</option>
+                <option value="포르투갈어" style="color:#ff4f52">포르투갈어</option>
+                <option value="라틴어" style="color:#ff4f52">라틴어</option>
+                <option value="네덜란드어" style="color:#ff4f52">네덜란드어</option>
+                <option value="말레이어" style="color:#ff4f52">말레이어</option>
+                <option value="스웨덴어" style="color:#ff4f52">스웨덴어</option>
+                <option value="우즈베크어" style="color:#ff4f52">우즈베크어</option>
+                <option value="이란어" style="color:#ff4f52">이란어</option>
+                <option value="체코어" style="color:#ff4f52">체코어</option>
+                <option value="폴란드어" style="color:#ff4f52">폴란드어</option>
+                <option value="헝가리어" style="color:#ff4f52">헝가리어</option>
+            </select>
+                <select name="course2" class="form-control-sm">
+                    <option value="수학" style="color:">수학</option>
+                    <option value="국어" style="color:">국어</option>
+                    <option value="과학" style="color:">과학</option>
+                    <option value="국사" style="color:">국사</option>
+                    <option value="화학" style="color:">화학</option>
+                    <option value="물리" style="color:">물리</option>
+                    <option value="논술" style="color:">논술</option>
+                    <option value="사회" style="color:">사회</option>
+                    <option value="미술" style="color:#0abaca">미술</option>
+                    <option value="피아노" style="color:#0abaca">피아노</option>
+                    <option value="바이올린" style="color:#0abaca">바이올린</option>
+                    <option value="첼로" style="color:#0abaca">첼로</option>
+                    <option value="보컬" style="color:#0abaca">보컬</option>
+                    <option value="기타(악기)" style="color:#0abaca">기타(악기)</option>
+                    <option value="플롯" style="color:#0abaca">플롯</option>
+                    <option value="성악" style="color:#0abaca">성악</option>
+                    <option value="연기" style="color:#0abaca">연기</option>
+                    <option value="무용" style="color:#0abaca">무용</option>
+                    <option value="음악" style="color:#0abaca">음악</option>
+                    <option value="예능" style="color:#0abaca">예능</option>
+                    <option value="체능" style="color:">체능</option>
+                    <option value="회계" style="color:">회계</option>
+                    <option value="문예창작" style="color:">문예창작</option>
+                    <option value="컴퓨터" style="color:">컴퓨터</option>
+                    <option value="세계" style="color:">세계</option>
+                    <option value="특수교육" style="color:">특수교육</option>
+                    <option value="한문" style="color:">한문</option>
+                    <option value="테니스" style="color:">테니스</option>
+                    <option value="기타과목" style="color:">기타과목</option>
+                    <option value="영어" style="color:#ff4f52">영어</option>
+                    <option value="토익" style="color:#ff4f52">토익</option>
+                    <option value="토플" style="color:#ff4f52">토플</option>
+                    <option value="탭스" style="color:#ff4f52">탭스</option>
+                    <option value="영어회화" style="color:#ff4f52">영어회화</option>
+                    <option value="중국어" style="color:#ff4f52">중국어</option>
+                    <option value="중국어회화" style="color:#ff4f52">중국어회화</option>
+                    <option value="HSK" style="color:#ff4f52">HSK</option>
+                    <option value="일어" style="color:#ff4f52">일어</option>
+                    <option value="일본어회화" style="color:#ff4f52">일본어회화</option>
+                    <option value="JLPT" style="color:#ff4f52">JLPT</option>
+                    <option value="러시아어" style="color:#ff4f52">러시아어</option>
+                    <option value="스페인" style="color:#ff4f52">스페인</option>
+                    <option value="불어" style="color:#ff4f52">불어</option>
+                    <option value="독어" style="color:#ff4f52">독어</option>
+                    <option value="캄보디아어" style="color:#ff4f52">캄보디아어</option>
+                    <option value="이탈리아어" style="color:#ff4f52">이탈리아어</option>
+                    <option value="베트남어" style="color:#ff4f52">베트남어</option>
+                    <option value="인도어" style="color:#ff4f52">인도어</option>
+                    <option value="아랍어" style="color:#ff4f52">아랍어</option>
+                    <option value="인도네시아" style="color:#ff4f52">인도네시아</option>
+                    <option value="터키어" style="color:#ff4f52">터키어</option>
+                    <option value="몽골어" style="color:#ff4f52">몽골어</option>
+                    <option value="태국어" style="color:#ff4f52">태국어</option>
+                    <option value="포르투갈어" style="color:#ff4f52">포르투갈어</option>
+                    <option value="라틴어" style="color:#ff4f52">라틴어</option>
+                    <option value="네덜란드어" style="color:#ff4f52">네덜란드어</option>
+                    <option value="말레이어" style="color:#ff4f52">말레이어</option>
+                    <option value="스웨덴어" style="color:#ff4f52">스웨덴어</option>
+                    <option value="우즈베크어" style="color:#ff4f52">우즈베크어</option>
+                    <option value="이란어" style="color:#ff4f52">이란어</option>
+                    <option value="체코어" style="color:#ff4f52">체코어</option>
+                    <option value="폴란드어" style="color:#ff4f52">폴란드어</option>
+                    <option value="헝가리어" style="color:#ff4f52">헝가리어</option>
+                </select></td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Hope Area1</th>
+            <td class="memberinput"><select id="teacher_sido1" class="form-control-sm" onchange="guOption1()">
+                <option value="">선택</option>
+                <option value="서울">서울</option>
+                <option value="부산">부산</option>
+                <option value="인천">인천</option>
+                <option value="경기">경기</option>
+                <option value="대구">대구</option>
+                <option value="대전">대전</option>
+                <option value="울산">울산</option>
+                <option value="광주">광주</option>
+                <option value="경북">경북</option>
+                <option value="경남">경남</option>
+                <option value="충북">충북</option>
+                <option value="충남">충남</option>
+                <option value="전북">전북</option>
+                <option value="전남">전남</option>
+                <option value="강원">강원</option>
+                <option value="제주">제주</option>
+                <option value="세종">세종</option>
+            </select>
+                <select id="teacher_gugun1" class="form-control-sm">
+                    <option value="">선택</option>
+                </select></td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;Hope Area2</th>
+            <td class="memberinput"><select id="teacher_sido2" class="form-control-sm" onchange="guOption2()">
+                <option value="">선택</option>
+                <option value="서울">서울</option>
+                <option value="부산">부산</option>
+                <option value="인천">인천</option>
+                <option value="경기">경기</option>
+                <option value="대구">대구</option>
+                <option value="대전">대전</option>
+                <option value="울산">울산</option>
+                <option value="광주">광주</option>
+                <option value="경북">경북</option>
+                <option value="경남">경남</option>
+                <option value="충북">충북</option>
+                <option value="충남">충남</option>
+                <option value="전북">전북</option>
+                <option value="전남">전남</option>
+                <option value="강원">강원</option>
+                <option value="제주">제주</option>
+                <option value="세종">세종</option>
+            </select>
+                <select id="teacher_gugun2" class="form-control-sm">
+                    <option value="">선택</option>
+                </select></td>
+        </tr>
+        <tr>
+            <th class="info" style="width:10%">&nbsp;&nbsp;About Me</th>
+            <td class="memberinput"><textarea id="teacher_about_me" cols="55" rows="15" class="form-control"></textarea></td>
+        </tr>
+    </table>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script src="Teacher.js"></script>
+</body>
+</html>

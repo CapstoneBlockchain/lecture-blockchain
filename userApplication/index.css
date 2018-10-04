@@ -1,0 +1,14 @@
+.content{
+    padding-top: 270px;
+    margin: 0 auto;
+    line-height: 100px;
+}
+
+.content .logo{
+    vertical-align: middle;
+    padding-bottom: 2%;
+}
+
+.content .button{
+    vertical-align: middle;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+
+<div id="top_menu">
+    <div align="center">
+        <input type="button" value="Home" onclick="location.href='../mypage/MainPage.html'">
+    </div>
+    <table class="table table-lg">
+        <tr>
+            <td align="center">
+                <input type="button" value="Search Teacher" class="btn-primary" onclick="location.href='./search/SearchTeacher.html'"
+                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+            </td>
+            <td align="center">
+                <input type="button" value="Search Student" class="btn-primary" onclick="location.href='./search/SearchStudent.html'"
+                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+            </td>
+            <td align="center">
+                <input type="button" value="Requests" class="btn-success" onclick="location.href='Requests.html'"
+                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+            </td>
+            <td align="center">
+                <input type="button" value="MyPage" class="btn-info" onclick="location.href='./mypage/MyPage.html'"
+                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="user_info"></div>
+<div align="right">
+    <div>
+        <textfield>Name</textfield>
+        <textfield>Position</textfield>
+    </div>
+    <div>
+        <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+    </div>
+</div>
+
+<div id="content" align="center">
+    <div id="request_table">
+        <table class='table-bordered'>
+            <thead>
+                <th>index</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Position</th>
+                <th>Type</th>
+                <th>Accept</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>

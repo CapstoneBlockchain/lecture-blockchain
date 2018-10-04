@@ -1,0 +1,36 @@
+.content{
+    padding-top: 350px;
+    padding-left: 30%;
+    padding-right: 30%;
+    margin: 0 auto;
+}
+.position_content{
+    padding-top: 400px;
+    padding-left: 30%;
+    padding-right: 30%;
+    margin: 0 auto;
+}
+
+.position_table{
+    width: 700px;
+}
+
+#login_table{
+    width: 300px;
+}
+
+.table_content{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 0 auto;
+}
+
+.title{
+    padding-bottom: 3%;
+}
+
+.div_table{
+    padding-left: 15%;
+    padding-right: 15%;
+}
