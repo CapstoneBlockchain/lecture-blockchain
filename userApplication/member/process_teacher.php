@@ -5,7 +5,6 @@
 <?php
   include('memberController.php');
 
-
   $id = $_POST['id'];
   $password = $_POST['password'];
   $name = $_POST['name'];
@@ -26,7 +25,7 @@
 
   $memberController = new memberController;
 
-  $memberController->registerUser($id, $password, $name, $tel1, $tel2, $tel3
+  $memberController->registerTeacher($id, $password, $name, $tel1, $tel2, $tel3
   , $univ, $major, $degree, $career, $course1, $course2
   , $sido1, $gugun1, $sido2, $gugun2, $aboutme);
 

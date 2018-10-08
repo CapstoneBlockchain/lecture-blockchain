@@ -499,5 +499,22 @@ function checkNumber(chr){
         alert("숫자만 입력하세요");
         chr.value="";
     }
+}
 
+function checkId(userId) {
+  if (userId == "") {
+    alert("아이디를 입력해 주세요.");
+  } else {
+    $.ajax({
+      url: 'idCheck_student.php',
+      type: 'POST',
+      data: {
+        'id': userId
+      },
+      dataType: 'html',
+      success: function(data) {
+        alert(data); // 결과 텍스트를 경고창으로 보여준다.
+      }
+    });
+  }
 }

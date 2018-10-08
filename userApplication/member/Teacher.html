@@ -10,13 +10,13 @@
 
 <div class="table_content">
     <h4 class="title card-title" align="center">Teacher Information</h4>
-    <form name="join_teacher" action="process.php" method="post">
+    <form name="join_teacher" action="process_teacher.php" method="post">
         <table id="teacher_membertable" align="center" class="position_table table-bordered table-sm">
             <tr>
                 <th class="info" style="width:20%">&nbsp;&nbsp;ID</th>
                 <td class="memberinput">
                     <input id="teacher_member_id" class="form-control-sm" type="text" name="id" value="">
-                    <!--<input type="button" name="" value="중복확인" class="inputbtn" onclick="checkId(document.join.id.value);">-->
+                    <input type="button" name="" value="double check" class="btn-dark" onclick="checkId(document.join.id.value);">
                 </td>
             </tr>
             <tr>
