@@ -7,7 +7,12 @@
 </head>
 <body>
 
-<div id="top_menu">
+
+<?php
+  echo("<script language=javascript> top_module(); </script>");
+ ?>
+
+<!-- <div id="top_menu">
     <div align="center">
         <input type="button" value="Home" onclick="location.href='../MainPage.html'">
     </div>
@@ -31,16 +36,17 @@
             </td>
         </tr>
     </table>
-</div>
+</div> -->
 
-<div id="user_info"></div>
-<div align="right">
-    <div>
-        <textfield>Name</textfield>
-        <textfield>Position</textfield>
-    </div>
-    <div>
-        <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+<div id="user_info">
+    <div align="right">
+        <div>
+            <textfield>Name</textfield>
+            <textfield>Position</textfield>
+        </div>
+        <div>
+            <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+        </div>
     </div>
 </div>
 
@@ -63,5 +69,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="Module.js"></script>
 </body>
 </html>

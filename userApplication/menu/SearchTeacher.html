@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+
+<div id="top_menu">
+    <div align="center">
+        <input type="image" value="Home" src="../img/cau.png" onclick="location.href='../MainPage.html'">
+    </div>
+    <table align="center" class="table-borderless table-lg">
+        <tr>
+            <td align="center">
+                <input type="button" value="Search Teacher" class="btn-primary" onclick="location.href='SearchTeacher.html'"
+                       style="text-align:center;">
+            </td>
+            <td align="center">
+                <input type="button" value="Search Student" class="btn-primary" onclick="location.href='SearchStudent.html'"
+                       style="text-align:center;">
+            </td>
+            <td align="center">
+                <input type="button" value="Requests" class="btn-success" onclick="location.href='Requests.html'"
+                       style="text-align:center;">
+            </td>
+            <td align="center">
+                <input type="button" value="MyPage" class="btn-info" onclick="location.href='MyPage.html'"
+                       style="text-align:center;">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<aside>
+    <div align="right">
+        <div>
+            <textfield>Name</textfield>
+            <textfield>Position</textfield>
+        </div>
+        <div>
+            <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+        </div>
+    </div>
+</aside>
+
+<div id="content" align="center">
+    <div id="teacher_table">
+        <table class="table-bordered"> <!--count 10-->
+            <thead>
+            <th>index</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Final Education</th>
+            <!--Button-->
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>

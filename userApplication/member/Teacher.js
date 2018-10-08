@@ -416,7 +416,7 @@ function guOption1(){
     }
 }
 function guOption2(){
-    var sidoSelect = document.getElementById("student_sido2").value;
+    var sidoSelect = document.getElementById("teacher_sido2").value;
     $("select#teacher_gugun2").empty();
 
     if (sidoSelect == "선택"){
@@ -499,5 +499,38 @@ function checkNumber(chr){
         alert("숫자만 입력하세요");
         chr.value="";
     }
+}
 
+
+function registerTeacher(){
+    var mysql = require('mysql');
+    var connection = mysql.createConnection({host:'127.0.0.1', user:'capstone', password:'1234'});
+
+    if (connection == null){
+        alert("not exist DB");
+    }
+
+    connection.connect();
+
+    // value setting
+    var id = document.getElementById("teacher_member_id").value;
+    var password = document.getElementById("teacher_member_password").value;
+    var name = document.getElementById("teacher_member_name").value;
+    var tel1 = document.getElementById("teacher_tel1").value;
+    var tel2 = document.getElementById("teacher_tel2").value;
+    var tel3 = document.getElementById("teacher_tel3").value;
+    var univ = document.getElementById("teacher_university").value;
+    var career = document.getElementById("teacher_career").value;
+    var course1 = document.getElementById("teacher_course1").value;
+    var course2 = document.getElementById("teacher_course2").value;
+    var sido1 = document.getElementById("teacher_sido1").value;
+    var gugun1= document.getElementById("teacher_gugun1").value;
+    var sido2 = document.getElementById("teacher_sido2").value;
+    var gugun2 = document.getElementById("teacher_gugun2").value;
+    var about = document.getElementById("teacher_about_me").value;
+
+    connection.query("insert into teacher values(id, password, name, tel1, tel2, tel3" +
+        ", univ, career, course1, course2, sido1, gugun1, sido2, gugun2, about)");
+
+    connection.end();
 }

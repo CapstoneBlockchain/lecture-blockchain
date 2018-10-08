@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="MainPage.css">
 </head>
 <body>
 
-<div id="top_menu">
-    <div align="center">
-        <input type="button" value="Home" onclick="location.href='MainPage.html'">
+<div id="top_menu" align="center">
+    <div id="div-logo" align="center">
+        <input class="top-logo" type="image" value="Home" src="img/cau.png" onclick="location.href='MainPage.html'">
     </div>
-    <table class="table table-lg">
+    <table class="table-borderless table-lg">
         <tr>
             <td align="center">
-                <input type="button" value="Search Teacher" class="btn-primary" onclick="location.href='search/SearchTeacher.html'"
-                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+                <input type="button" value="Search Teacher" class="btn-lg btn-primary" onclick="location.href='menu/SearchTeacher.html'"
+                       style="text-align:center;">
             </td>
             <td align="center">
-                <input type="button" value="Search Student" class="btn-primary" onclick="location.href='search/SearchStudent.html'"
-                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+                <input type="button" value="Search Student" class="btn-lg btn-primary" onclick="location.href='menu/SearchStudent.html'"
+                       style="text-align:center;">
             </td>
             <td align="center">
-                <input type="button" value="Requests" class="btn-success" onclick="location.href='requests/Requests.html'"
-                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+                <input type="button" value="Requests" class="btn-lg btn-success" onclick="location.href='menu/Requests.html'"
+                       style="text-align:center;">
             </td>
             <td align="center">
-                <input type="button" value="MyPage" class="btn-info" onclick="location.href='mypage/MyPage.html'"
-                       style="text-align:center;background-color:#5f9ea0;border:0;outline:0">
+                <input type="button" value="MyPage" class="btn-lg btn-info" onclick="location.href='menu/MyPage.html'"
+                       style="text-align:center;">
             </td>
         </tr>
     </table>
 </div>
 
-<div id="user_info"></div>
-<div align="right">
-    <div>
-        <textfield>Name</textfield>
-        <textfield>Position</textfield>
-    </div>
-    <div>
-        <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+<div id="user_info">
+    <div align="center">
+        <div>
+            <textfield>Name</textfield>
+            <textfield>Position</textfield>
+        </div>
+        <div>
+            <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+        </div>
     </div>
 </div>
 
