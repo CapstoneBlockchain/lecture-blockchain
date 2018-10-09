@@ -1,0 +1,26 @@
+#top_menu {
+  padding-top: 10px;
+}
+
+.navbar-darkgray {
+    border-color: #3a3f44;
+    background-color: #3a3f44;
+}
+
+.navbar-darkgray .nav>li>a:hover, .navbar-darkgray .nav>li>a:focus {
+    background-color: #3a3f44;
+}
+
+#content {
+  padding-top: 30px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.search-table {
+  width:80%;
+}
+
+#request_table {
+  padding-top: 30px;
+}
