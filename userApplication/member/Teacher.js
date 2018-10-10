@@ -343,75 +343,75 @@ function guOption1(){
 
     if (sidoSelect == "선택"){
         for (var i = 0; i < guName[0].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[0][i]>'+guName[0][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[0][i]+'">'+guName[0][i]+'</option>>');
         }
     } else if (sidoSelect == "서울"){
         for (var i = 0; i < guName[1].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[1][i]>'+guName[1][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[1][i]+'">'+guName[1][i]+'</option>>');
         }
     } else if (sidoSelect == "부산"){
         for (var i = 0; i < guName[2].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[2][i]>'+guName[2][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[2][i]+'">'+guName[2][i]+'</option>>');
         }
     } else if (sidoSelect == "인천"){
         for (var i = 0; i < guName[3].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[3][i]>'+guName[3][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[3][i]+'">'+guName[3][i]+'</option>>');
         }
     } else if (sidoSelect == "경기"){
         for (var i = 0; i < guName[4].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[4][i]>'+guName[4][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[4][i]+'">'+guName[4][i]+'</option>>');
         }
     } else if (sidoSelect == "대구"){
         for (var i = 0; i < guName[5].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[5][i]>'+guName[5][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[5][i]+'">'+guName[5][i]+'</option>>');
         }
     } else if (sidoSelect == "대전"){
         for (var i = 0; i < guName[6].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[6][i]>'+guName[6][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[6][i]+'">'+guName[6][i]+'</option>>');
         }
     } else if (sidoSelect == "울산"){
         for (var i = 0; i < guName[7].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[7][i]>'+guName[7][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[7][i]+'">'+guName[7][i]+'</option>>');
         }
     } else if (sidoSelect == "광주"){
         for (var i = 0; i < guName[8].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[8][i]>'+guName[8][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[8][i]+'">'+guName[8][i]+'</option>>');
         }
     } else if (sidoSelect == "경북"){
         for (var i = 0; i < guName[9].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[9][i]>'+guName[9][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[9][i]+'">'+guName[9][i]+'</option>>');
         }
     } else if (sidoSelect == "경남"){
         for (var i = 0; i < guName[10].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[10][i]>'+guName[10][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[10][i]+'">'+guName[10][i]+'</option>>');
         }
     } else if (sidoSelect == "충북"){
         for (var i = 0; i < guName[11].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[11][i]>'+guName[11][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[11][i]+'">'+guName[11][i]+'</option>>');
         }
     } else if (sidoSelect == "충남"){
         for (var i = 0; i < guName[12].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[12][i]>'+guName[12][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[12][i]+'">'+guName[12][i]+'</option>>');
         }
     } else if (sidoSelect == "전북"){
         for (var i = 0; i < guName[13].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[13][i]>'+guName[13][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[13][i]+'">'+guName[13][i]+'</option>>');
         }
     } else if (sidoSelect == "전남"){
         for (var i = 0; i < guName[14].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[14][i]>'+guName[14][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[14][i]+'">'+guName[14][i]+'</option>>');
         }
     } else if (sidoSelect == "강원"){
         for (var i = 0; i < guName[15].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[15][i]>'+guName[15][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[15][i]+'">'+guName[15][i]+'</option>>');
         }
     } else if (sidoSelect == "제주"){
         for (var i = 0; i < guName[16].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[16][i]>'+guName[16][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[16][i]+'">'+guName[16][i]+'</option>>');
         }
     } else if (sidoSelect == "세종"){
         for (var i = 0; i < guName[17].length; i++){
-            $("select#teacher_gugun1").append('<option value=guName[17][i]>'+guName[17][i]+'</option>>');
+            $("select#teacher_gugun1").append('<option value="'+guName[17][i]+'">'+guName[17][i]+'</option>>');
         }
     }
 }
@@ -421,75 +421,75 @@ function guOption2(){
 
     if (sidoSelect == "선택"){
         for (var i = 0; i < guName[0].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[0][i]>'+guName[0][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[0][i]+'">'+guName[0][i]+'</option>>');
         }
     } else if (sidoSelect == "서울"){
         for (var i = 0; i < guName[1].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[1][i]>'+guName[1][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[1][i]+'">'+guName[1][i]+'</option>>');
         }
     } else if (sidoSelect == "부산"){
         for (var i = 0; i < guName[2].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[2][i]>'+guName[2][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[2][i]+'">'+guName[2][i]+'</option>>');
         }
     } else if (sidoSelect == "인천"){
         for (var i = 0; i < guName[3].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[3][i]>'+guName[3][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[3][i]+'">'+guName[3][i]+'</option>>');
         }
     } else if (sidoSelect == "경기"){
         for (var i = 0; i < guName[4].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[4][i]>'+guName[4][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[4][i]+'">'+guName[4][i]+'</option>>');
         }
     } else if (sidoSelect == "대구"){
         for (var i = 0; i < guName[5].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[5][i]>'+guName[5][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[5][i]+'">'+guName[5][i]+'</option>>');
         }
     } else if (sidoSelect == "대전"){
         for (var i = 0; i < guName[6].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[6][i]>'+guName[6][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[6][i]+'">'+guName[6][i]+'</option>>');
         }
     } else if (sidoSelect == "울산"){
         for (var i = 0; i < guName[7].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[7][i]>'+guName[7][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[7][i]+'">'+guName[7][i]+'</option>>');
         }
     } else if (sidoSelect == "광주"){
         for (var i = 0; i < guName[8].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[8][i]>'+guName[8][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[8][i]+'">'+guName[8][i]+'</option>>');
         }
     } else if (sidoSelect == "경북"){
         for (var i = 0; i < guName[9].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[9][i]>'+guName[9][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[9][i]+'">'+guName[9][i]+'</option>>');
         }
     } else if (sidoSelect == "경남"){
         for (var i = 0; i < guName[10].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[10][i]>'+guName[10][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[10][i]+'">'+guName[10][i]+'</option>>');
         }
     } else if (sidoSelect == "충북"){
         for (var i = 0; i < guName[11].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[11][i]>'+guName[11][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[11][i]+'">'+guName[11][i]+'</option>>');
         }
     } else if (sidoSelect == "충남"){
         for (var i = 0; i < guName[12].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[12][i]>'+guName[12][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[12][i]+'">'+guName[12][i]+'</option>>');
         }
     } else if (sidoSelect == "전북"){
         for (var i = 0; i < guName[13].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[13][i]>'+guName[13][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[13][i]+'">'+guName[13][i]+'</option>>');
         }
     } else if (sidoSelect == "전남"){
         for (var i = 0; i < guName[14].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[14][i]>'+guName[14][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[14][i]+'">'+guName[14][i]+'</option>>');
         }
     } else if (sidoSelect == "강원"){
         for (var i = 0; i < guName[15].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[15][i]>'+guName[15][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[15][i]+'">'+guName[15][i]+'</option>>');
         }
     } else if (sidoSelect == "제주"){
         for (var i = 0; i < guName[16].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[16][i]>'+guName[16][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[16][i]+'">'+guName[16][i]+'</option>>');
         }
     } else if (sidoSelect == "세종"){
         for (var i = 0; i < guName[17].length; i++){
-            $("select#teacher_gugun2").append('<option value=guName[17][i]>'+guName[17][i]+'</option>>');
+            $("select#teacher_gugun2").append('<option value="'+guName[17][i]+'">'+guName[17][i]+'</option>>');
         }
     }
 }
@@ -506,7 +506,7 @@ function checkId(userId) {
     alert("아이디를 입력해 주세요.");
   } else {
     $.ajax({
-      url: 'idCheck_teacher.php',
+      url: './idCheck_teacher.php',
       type: 'POST',
       data: {
         'id': userId

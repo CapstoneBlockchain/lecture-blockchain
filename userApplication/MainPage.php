@@ -14,13 +14,13 @@
   <nav class="navbar navbar-darkgray">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="../MainPage.html" style="color:#ffffff;font-size:25px;">LectureChain</a>
+        <a class="navbar-brand" href="../MainPage.php" style="color:#ffffff;font-size:25px;">LectureChain</a>
       </div>
       <ul class="nav">
-        <li><a href="menu/SearchTeacher.html" style="color:#ffffff;font-size:16px;">Search Teacher</a></li>
-        <li><a href="menu/SearchStudent.html" style="color:#ffffff;font-size:16px;">Search Student</a></li>
-        <li><a href="menu/Requests.html" style="color:#ffffff;font-size:16px;">Requests</a></li>
-        <li><a href="menu/MyPage.html" style="color:#ffffff;font-size:16px;">My Page</a></li>
+        <li><a href="menu/SearchTeacher.php" style="color:#ffffff;font-size:16px;">Search Teacher</a></li>
+        <li><a href="menu/SearchStudent.php" style="color:#ffffff;font-size:16px;">Search Student</a></li>
+        <li><a href="menu/Requests.php" style="color:#ffffff;font-size:16px;">Requests</a></li>
+        <li><a href="menu/MyPage.php" style="color:#ffffff;font-size:16px;">My Page</a></li>
       </ul>
       <ul class="nav navbar-right">
         <li class="dropdown">
@@ -29,8 +29,11 @@
           </a>
           <div class="dropdown-menu" style="min-width:150px;" align="center">
             <div align="center">
-                <input type="text" name="textfield" id="text_name">
-                <input type="text" name="textfiled" id="text_position">
+              <?php
+                session_start();
+                echo "<textfield>".$_SESSION['userName']."  </textfield>";
+                echo "<textfield>".$_SESSION['userPossition']."</textfield>";
+               ?>
             </div>
             <div align="center">
                 <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
