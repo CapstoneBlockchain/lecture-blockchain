@@ -208,7 +208,7 @@
 
       $insertSql = $insertSql." VALUES('$id', '$password', '$name'
       , '$tel1', '$tel2', '$tel3', '$school', '$course1', '$course2'
-      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$about')";
+      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$aboutme')";
 
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
