@@ -36,7 +36,7 @@
                ?>
             </div>
             <div align="center">
-                <input type="button" value="Log-out" class="btn-warning" onclick="location.href=''">
+                <input type="button" value="Log-out" class="btn-warning" onclick="location.href='./menu/logout.php'">
             </div>
           </div>
         </li>
