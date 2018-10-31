@@ -131,7 +131,7 @@
 
       $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
 
-      $checkSql = "SELECT id FROM teacher WHERE id = '".$id."'";
+      $checkSql = "SELECT id FROM student WHERE id = '".$id."'";
       $result = $mysqli->query($checkSql);
 
       if($result->fetch_row()){
@@ -222,50 +222,6 @@
               </script>';
       }
 
-    }
-
-    function idCheck_teacher($id){
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
-
-      $checkSql = "SELECT id FROM teacher WHERE id = '".$id."'";
-      $result = $mysqli->query($checkSql);
-
-      if($result->fetch_row()){
-        //실패
-        echo '<script type="text/javascript">
-              alert("Fail");
-              history.back();
-              </script>';
-      }else{
-        //성공
-        echo '<script type="text/javascript">
-              alert("Success.");
-              location.href="../index.html"
-              </script>';
-      }
-      $mysqli->close();
-    }
-
-    function idCheck_student($id){
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
-
-      $checkSql = "SELECT id FROM student WHERE id = '".$id."'";
-      $result = $mysqli->query($checkSql);
-
-      if($result->fetch_row()){
-        //실패
-        echo '<script type="text/javascript">
-              alert("Fail");
-              history.back();
-              </script>';
-      }else{
-        //성공
-        echo '<script type="text/javascript">
-              alert("Success.");
-              location.href="../index.html"
-              </script>';
-      }
-      $mysqli->close();
     }
 
     function logOut(){
