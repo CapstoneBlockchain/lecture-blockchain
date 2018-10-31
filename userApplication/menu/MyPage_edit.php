@@ -258,23 +258,23 @@
               <th>&nbsp;&nbsp;Hope Area1</th>
               <td class="memberinput"><select id="sido1" name="sido1" class="form-control-sm" onchange="guOption1()">
                   <option value="">선택</option>
-                  <option value="서울">서울</option>
-                  <option value="부산">부산</option>
-                  <option value="인천">인천</option>
-                  <option value="경기">경기</option>
-                  <option value="대구">대구</option>
-                  <option value="대전">대전</option>
-                  <option value="울산">울산</option>
-                  <option value="광주">광주</option>
-                  <option value="경북">경북</option>
-                  <option value="경남">경남</option>
-                  <option value="충북">충북</option>
-                  <option value="충남">충남</option>
-                  <option value="전북">전북</option>
-                  <option value="전남">전남</option>
-                  <option value="강원">강원</option>
-                  <option value="제주">제주</option>
-                  <option value="세종">세종</option>
+                  <option value="서울" <?php if ($row['sido1'] == '서울') echo "selected"; ?>>서울</option>
+                  <option value="부산" <?php if ($row['sido1'] == '부산') echo "selected"; ?>>부산</option>
+                  <option value="인천" <?php if ($row['sido1'] == '인천') echo "selected"; ?>>인천</option>
+                  <option value="경기" <?php if ($row['sido1'] == '경기') echo "selected"; ?>>경기</option>
+                  <option value="대구" <?php if ($row['sido1'] == '대구') echo "selected"; ?>>대구</option>
+                  <option value="대전" <?php if ($row['sido1'] == '대전') echo "selected"; ?>>대전</option>
+                  <option value="울산" <?php if ($row['sido1'] == '울산') echo "selected"; ?>>울산</option>
+                  <option value="광주" <?php if ($row['sido1'] == '광주') echo "selected"; ?>>광주</option>
+                  <option value="경북" <?php if ($row['sido1'] == '경북') echo "selected"; ?>>경북</option>
+                  <option value="경남" <?php if ($row['sido1'] == '경남') echo "selected"; ?>>경남</option>
+                  <option value="충북" <?php if ($row['sido1'] == '충북') echo "selected"; ?>>충북</option>
+                  <option value="충남" <?php if ($row['sido1'] == '충남') echo "selected"; ?>>충남</option>
+                  <option value="전북" <?php if ($row['sido1'] == '전북') echo "selected"; ?>>전북</option>
+                  <option value="전남" <?php if ($row['sido1'] == '전남') echo "selected"; ?>>전남</option>
+                  <option value="강원" <?php if ($row['sido1'] == '강원') echo "selected"; ?>>강원</option>
+                  <option value="제주" <?php if ($row['sido1'] == '제주') echo "selected"; ?>>제주</option>
+                  <option value="세종" <?php if ($row['sido1'] == '세종') echo "selected"; ?>>세종</option>
               </select>
                   <select id="gugun1" name="gugun1" class="form-control-sm">
                       <option value="">선택</option>
@@ -284,23 +284,23 @@
               <th>&nbsp;&nbsp;Hope Area2</th>
               <td class="memberinput"><select id="sido2" name="sido2" class="form-control-sm" onchange="guOption2()">
                   <option value="">선택</option>
-                  <option value="서울">서울</option>
-                  <option value="부산">부산</option>
-                  <option value="인천">인천</option>
-                  <option value="경기">경기</option>
-                  <option value="대구">대구</option>
-                  <option value="대전">대전</option>
-                  <option value="울산">울산</option>
-                  <option value="광주">광주</option>
-                  <option value="경북">경북</option>
-                  <option value="경남">경남</option>
-                  <option value="충북">충북</option>
-                  <option value="충남">충남</option>
-                  <option value="전북">전북</option>
-                  <option value="전남">전남</option>
-                  <option value="강원">강원</option>
-                  <option value="제주">제주</option>
-                  <option value="세종">세종</option>
+                  <option value="서울" <?php if ($row['sido2'] == '서울') echo "selected"; ?>>서울</option>
+                  <option value="부산" <?php if ($row['sido2'] == '부산') echo "selected"; ?>>부산</option>
+                  <option value="인천" <?php if ($row['sido2'] == '인천') echo "selected"; ?>>인천</option>
+                  <option value="경기" <?php if ($row['sido2'] == '경기') echo "selected"; ?>>경기</option>
+                  <option value="대구" <?php if ($row['sido2'] == '대구') echo "selected"; ?>>대구</option>
+                  <option value="대전" <?php if ($row['sido2'] == '대전') echo "selected"; ?>>대전</option>
+                  <option value="울산" <?php if ($row['sido2'] == '울산') echo "selected"; ?>>울산</option>
+                  <option value="광주" <?php if ($row['sido2'] == '광주') echo "selected"; ?>>광주</option>
+                  <option value="경북" <?php if ($row['sido2'] == '경북') echo "selected"; ?>>경북</option>
+                  <option value="경남" <?php if ($row['sido2'] == '경남') echo "selected"; ?>>경남</option>
+                  <option value="충북" <?php if ($row['sido2'] == '충북') echo "selected"; ?>>충북</option>
+                  <option value="충남" <?php if ($row['sido2'] == '충남') echo "selected"; ?>>충남</option>
+                  <option value="전북" <?php if ($row['sido2'] == '전북') echo "selected"; ?>>전북</option>
+                  <option value="전남" <?php if ($row['sido2'] == '전남') echo "selected"; ?>>전남</option>
+                  <option value="강원" <?php if ($row['sido2'] == '강원') echo "selected"; ?>>강원</option>
+                  <option value="제주" <?php if ($row['sido2'] == '제주') echo "selected"; ?>>제주</option>
+                  <option value="세종" <?php if ($row['sido2'] == '세종') echo "selected"; ?>>세종</option>
               </select>
                   <select id="gugun2" name="gugun2" class="form-control-sm">
                       <option value="">선택</option>
@@ -322,10 +322,13 @@
   </div>
 
 </div>
-
-<script type="text/javascript" src="MyPage.js"></script>
+<script type="text/javascript">
+  loadgugun("select#gugun1", "<?php echo $row["sido1"] ?>", "<?php echo $row["gugun1"] ?>");
+  loadgugun("select#gugun2", "<?php echo $row["sido2"] ?>", "<?php echo $row["gugun2"] ?>");
+</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="MyPage.js"></script>
 </body>
 </html>

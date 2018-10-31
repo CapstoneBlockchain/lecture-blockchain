@@ -1,6 +1,26 @@
 var guName = new Array();
 var guCode = new Array();
 
+var siName = new Array();
+
+siName[1] = "서울";
+siName[2] = "부산";
+siName[3] = "인천";
+siName[4] = "경기";
+siName[5] = "대구";
+siName[6] = "대전";
+siName[7] = "울산";
+siName[8] = "광주";
+siName[9] = "경북";
+siName[10] = "경남";
+siName[11] = "충북";
+siName[12] = "충남";
+siName[13] = "전북";
+siName[14] = "전남";
+siName[15] = "강원";
+siName[16] = "제주";
+siName[17] = "세종";
+
 //서울
 guName[1] = new Array();		guCode[1] = new Array();
 guName[1][0] = "----------- ";			guCode[1][0] = "";
@@ -499,4 +519,20 @@ function checkNumber(chr){
         alert("숫자만 입력하세요");
         chr.value="";
     }
+}
+
+function loadgugun(id, sido, gugun){
+  $(id).empty();
+
+  for (var i = 1; i < siName.length; i++){
+    if (siName[i] == sido){
+      for (var j = 0; j < guName[i].length; j++){
+        if (guName[i][j] == gugun){
+          $(id).append('<option value="'+guName[i][j]+'" selected>'+guName[i][j]+'</option>>');
+        } else {
+          $(id).append('<option value="'+guName[i][j]+'">'+guName[i][j]+'</option>>');
+        }
+      }
+    }
+  }
 }
