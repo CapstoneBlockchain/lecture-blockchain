@@ -15,11 +15,14 @@
   padding-top: 30px;
   padding-left: 10%;
   padding-right: 10%;
-    height: 100%;
+}
+
+.click_td {
+    display:block;
 }
 
 .search-table {
-  width:80%;
+  width:700px;
 }
 
 #request_table {

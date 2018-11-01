@@ -68,7 +68,7 @@
    ?>
 
   <div id="request_table" align="center">
-    <form name="join" action="" method="post">
+    <form name="join" action="editUserInfo.php" method="post">
       <table align="center" class="table-bordered table">
           <tr>
               <th>&nbsp;&nbsp;ID</th>
@@ -101,26 +101,45 @@
           </tr>
           <?php
           if ($_SESSION['userPossition'] == "student"){
-
+            echo '<tr>';
+              echo '<th>&nbsp;&nbsp;School Year</th>';
+              echo '<td class="memberinput">';
+                echo '<select id="school" name="school" class="form-control-sm">';
+                    echo '<option value="">::Choice::</option>';
+                    echo '<option value="Elementary">Elementary</option>';
+                    echo '<option value="Middle">Middle</option>';
+                    echo '<option value="High">High</option>';
+                    echo '<option value="Repeater">Repeater</option>';
+                    echo '<option value="Public">Public</option>';
+                echo '</select>';
+              echo '</td>';
+            echo '</tr>';
 
           } else {
-
+            echo '<tr>';
+              echo '<th>&nbsp;&nbsp;Final Education</th>';
+              echo '<td class="memberinput">';
+                echo 'University <input id="university" class="form-control-sm" type="text" name="university" value="'.$row['univ'].'">';
+                echo 'Major <input id="major" class="form-control-sm" type="text" name="major" value="'.$row['major'].'"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                echo 'Degree <select id="degree" name="education" class="form-control-sm">';
+                echo '<option value="">::Choice::</option>';
+                echo '<option value="bachelor1grade">Bachelor 1 Grade</option>';
+                echo '<option value="bachelor2grade">Bachelor 2 Grade</option>';
+                echo '<option value="bachelor3grade">Bachelor 3 Grade</option>';
+                echo '<option value="bachelor4grade">Bachelor 4 Grade</option>';
+                echo '<option value="master1grade">Master 1 Grade</option>';
+                echo '<option value="master2grade">Master 2 Grade</option>';
+                echo '<option value="Graduated">Graduated</option>';
+                echo '</select>';
+              echo '</td>';
+            echo '</tr>';
+            echo '<tr>';
+              echo '<th>&nbsp;&nbsp;Career</th>';
+              echo '<td class="memberinput"><input id="teacher_career" name="career" class="form-control-sm" type="text" value="'.$row['career'].'"></td>';
+            echo '</tr>';
 
           }
            ?>
-          <!-- <tr>
-              <th class="info" style="width:15%">&nbsp;&nbsp;School Year</th>
-              <td class="memberinput">
-                  <select id="select2" name="school_year" class="form-control-sm">
-                      <option value="">::Choice::</option>
-                      <option value="Elementary">Elementary</option>
-                      <option value="Middle">Middle</option>
-                      <option value="High">High</option>
-                      <option value="Repeater">Repeater</option>
-                      <option value="Public">Public</option>
-                  </select>
-              </td>
-          </tr> -->
           <tr>
               <th>&nbsp;&nbsp;Hope Course</th>
               <td class="memberinput"><select name="course1" class="form-control-sm">
@@ -322,13 +341,22 @@
   </div>
 
 </div>
-<script type="text/javascript">
-  loadgugun("select#gugun1", "<?php echo $row["sido1"] ?>", "<?php echo $row["gugun1"] ?>");
-  loadgugun("select#gugun2", "<?php echo $row["sido2"] ?>", "<?php echo $row["gugun2"] ?>");
-</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script type="text/javascript" src="MyPage.js"></script>
+<script type="text/javascript">
+  $(window).on("load",function(){
+    loadgugun("select#gugun1", "<?php echo $row["sido1"]; ?>", "<?php echo $row["gugun1"]; ?>");
+    loadgugun("select#gugun2", "<?php echo $row["sido2"]; ?>", "<?php echo $row["gugun2"]; ?>");
+    var position = "<?php echo $_SESSION["userPossition"]; ?>";
+
+    if (position == 'student'){
+      loadSchool("school", "<?php if ($_SESSION['userPossition'] == 'student')echo $row["school"]; ?>");
+    } else {
+      loadDegree("degree", "<?php if ($_SESSION['userPossition'] == 'teacher')echo $row["degree"]; ?>");
+    }
+  });
+</script>
 </body>
 </html>

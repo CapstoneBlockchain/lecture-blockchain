@@ -48,23 +48,55 @@
 
 <div id="content" align="center">
     <div id="teacher_table" align="center">
-        <table class="search-table table table-hover"> <!--count 10-->
-            <thead>
-            <th>index</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Final Education</th>
-            <!--Button-->
-            </thead>
-            <tbody>
+      <table class="search-table table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">index</th>
+          <th scope="col">Name</th>
+          <th scope="col">Course 1</th>
+          <th scope="col">Course 2</th>
+          <th scope="col">University</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          if (isset($_GET['pageNum'])){
+            $pageNum = $_GET['pageNum'];
+          } else {
+            $pageNum = 1;
+          }
+          include("SearchController.php");
+          $searchController = new SearchController;
 
-            </tbody>
-        </table>
-        <div class="text-center">
-          <ul class="pagination">
-            <li><a href="#" style="color:black;">1</a></li>
-          </ul>
-        </div>
+          $result = $searchController->loadUser('teacher', $pageNum);
+
+          while ($row = $result->fetch_assoc()){
+            echo "<tr onclick='location.href=\"clickedUser.php?pageNum=".$pageNum."&position=teacher\";'>";
+              echo "<td scope='row'>".$pageNum."</td>";
+              echo "<td scope='row'>".$row['name']."</td>";
+              echo "<td scope='row'>".$row['course1']."</td>";
+              echo "<td scope='row'>".$row['course2']."</td>";
+              echo "<td scope='row'>".$row['university']."</td>";
+            echo "</tr>";
+
+            $pageNum = $pageNum + 1;
+          }
+         ?>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <ul class="pagination">
+        <?php
+          $count = $searchController->countUser('teacher');
+          $count = $count / 20;
+          $a = 0;
+          while ($a <= $count){
+            echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+            $a = $a + 1;
+          }
+         ?>
+      </ul>
+    </div>
     </div>
 </div>
 

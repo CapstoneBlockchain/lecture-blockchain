@@ -1,7 +1,7 @@
 <?php
 
   class userController{
-    
+
 
     function updateTeacher($id, $name, $tel1, $tel2, $tel3
     , $univ, $major, $degree, $career, $course1, $course2
@@ -76,7 +76,7 @@
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="../MainPage.html"
+              location.href="MyPage.php"
               </script>';
       }else{
         echo '<script type="text/javascript">
@@ -141,7 +141,7 @@
       $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
 
       $mysqli->set_charset('utf8');
-      $insertSql = "UPDATE teacher SET name = '$name', tel1 = '$tel1'
+      $insertSql = "UPDATE student SET name = '$name', tel1 = '$tel1'
       , tel2 = '$tel2', tel3 = '$tel3', school = '$school'
       , course1 = '$course1', course2 = '$course2'
       , sido1 = '$sido1', gugun1 = '$gugun1'
@@ -149,9 +149,10 @@
       WHERE id = '$id'";
 
       if($mysqli->query($insertSql)){
+
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="../MainPage.html"
+              location.href="MyPage.php"
               </script>';
       }else{
         echo '<script type="text/javascript">
