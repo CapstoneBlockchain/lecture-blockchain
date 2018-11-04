@@ -48,15 +48,21 @@
 <div id="content" align="center">
   <div id="request_table" align="center">
     <table align="center" class="table-bordered table">
-      <?php
-        include("SearchController.php");
-        $searchController = new SearchController;
+            <tr>
+                <th class="">&nbsp;&nbsp;ID</th>
+                <td class="memberinput">
+                  <?php
+                    include("RequestsController.php");
+                    $requestsController = new RequestsController;
 
-        $userNum = $_GET['pageNum'];
-        $pageNum = ($userNum - ($userNum % 20)) / 20;
-        $row = $searchController->clickUser($_GET['position'], $pageNum, $userNum);
+                    $userNum = $_GET['pageNum'];
+                    $pageNum = ($userNum - ($userNum % 20)) / 20;
+                    $row = $requestsController->clickRequest($_GET['position'], $_SESSION['userId'], $pageNum, $userNum);
 
-       ?>
+                    echo '<textfield>'.$row['id'].'</textfield>';
+                   ?>
+                </td>
+            </tr>
             <tr>
                 <th class="">&nbsp;&nbsp;Name</th>
                 <td class="memberinput">
@@ -68,7 +74,9 @@
             <tr>
                 <th class="">&nbsp;&nbsp;Tel</th>
                 <td>
-                  <textfield>Private</textfield>
+                  <?php
+                    echo '<textfield>'.$row['tel1'].' - '.$row['tel2'].' - '.$row['tel3'].'</textfield>';
+                   ?>
                 </td>
             </tr>
             <?php
@@ -89,20 +97,20 @@
                 echo '<tr>';
                   echo '<th>&nbsp;&nbsp;Degree</th>';
                   echo '<td>';
-                    echo '<textfield>Private</textfield>';
+                    echo '<textfield>'.$row['degree'].'</textfield>';
                   echo '</td>';
                 echo '</tr>';
                 echo '<tr>';
                   echo '<th>&nbsp;&nbsp;career</th>';
                   echo '<td>';
-                    echo '<textfield>Private</textfield>';
+                    echo '<textfield>'.$row['career'].'</textfield>';
                   echo '</td>';
                 echo '</tr>';
               } else {
                 echo '<tr>';
                 echo '<th>&nbsp;&nbsp;School</th>';
                 echo '<td>';
-                  echo '<textfield>Private</textfield>';
+                  echo '<textfield>'.$row['school'].'</textfield>';
                 echo '</td>';
                 echo '</tr>';
               }
@@ -146,14 +154,6 @@
                 </td>
             </tr>
     </table>
-    <div class="">
-      <?php
-        if ($_SESSION['userPossition'] != $_GET['position']){
-          $pageNum = $_GET['pageNum'];
-          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
-        }
-       ?>
-    </div>
   </div>
 </div>
 

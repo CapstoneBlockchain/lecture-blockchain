@@ -55,17 +55,50 @@
     <div id="request_table" align="center">
         <table class="search-table table table-hover">
             <thead>
-                <th>index</th>
-                <th>Name</th>
-                <th>Accept</th>
+              <tr>
+                <th scope="col">index</th>
+                <th scope="col">Name</th>
+                <th scope="col">Course 1</th>
+                <th scope="col">Course 2</th>
+              </tr>
             </thead>
             <tbody>
+              <?php
+                if (isset($_GET['pageNum'])){
+                  $pageNum = $_GET['pageNum'];
+                } else {
+                  $pageNum = 1;
+                }
+                include("RequestsController.php");
+                $requestsController = new RequestsController;
 
+                $result = $requestsController->loadRequest($_SESSION['userPossition'], $_SESSION['userId'], $pageNum);
+
+                while ($row = $result->fetch_assoc()){
+                  echo "<tr onclick='location.href=\"clickedRequest.php?pageNum=".$pageNum."&position=student\";'>";
+                    echo "<td scope='row'>".$pageNum."</td>";
+                    echo "<td scope='row'>".$row['name']."</td>";
+                    echo "<td scope='row'>".$row['course1']."</td>";
+                    echo "<td scope='row'>".$row['course2']."</td>";
+                  echo "</tr>";
+
+                  $pageNum = $pageNum + 1;
+                }
+
+               ?>
             </tbody>
         </table>
         <div class="text-center">
           <ul class="pagination">
-            <li><a href="#" style="color:black;">1</a></li>
+            <?php
+              $count = $requestsController->countRequest($_SESSION['userId'], $_SESSION['userPossition']);
+              $count = $count / 20;
+              $a = 0;
+              while ($a <= $count){
+                echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+                $a = $a + 1;
+              }
+             ?>
           </ul>
         </div>
     </div>
