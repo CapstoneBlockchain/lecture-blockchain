@@ -5,7 +5,7 @@
 <?php
   class RequestsController{
 
-    function loadRequest($position, $id, $pageNum){
+    function loadRequest($position, $id, $pageNum, $type){
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
@@ -15,10 +15,10 @@
 
       if ($position == 'teacher'){
         $sql = "SELECT * FROM wait_request JOIN student ON from_id = id
-        WHERE to_id = '$id' and to_position = '$position' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
+        WHERE to_id = '$id' and to_position = '$position' and type = '$type' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
       } else {
         $sql = "SELECT * FROM wait_request JOIN teacher ON from_id = id
-        WHERE to_id = '$id' and to_position = '$position' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
+        WHERE to_id = '$id' and to_position = '$position' and type = '$type' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
       }
 
       $result = $mysqli->query($sql);
@@ -30,24 +30,26 @@
       }
     }
 
-    function clickRequest($position, $id, $pageNum, $userNum){
+    function clickRequest($position, $id, $pageNum, $userNum, $type){
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
-      $minNum = ($pageNum - 1) * 20;
+      $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
       if ($position == 'teacher'){
         $sql = "SELECT * FROM wait_request JOIN student ON from_id = id
-        WHERE to_id = '$id' and to_position = '$position' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
+        WHERE to_id = '$id' and to_position = '$position' and type = '$type' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
       } else {
         $sql = "SELECT * FROM wait_request JOIN teacher ON from_id = id
-        WHERE to_id = '$id' and to_position = '$position' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
+        WHERE to_id = '$id' and to_position = '$position' and type = '$type' ORDER BY to_id DESC LIMIT $minNum, $maxNum";
       }
 
       $userNum = $userNum % 20;
       $i = 1;
+
+      $result = $mysqli->query($sql);
 
       while ($row = $result->fetch_assoc()){
         if ($i == $userNum){
@@ -58,12 +60,30 @@
       }
     }
 
-    function countRequest($id, $position){
+    function deleteWaitRequest(){
+      
+    }
+
+    function completeRequest($teacher_id, $student_id, $type){
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
-      $sql = "SELECT COUNT(*) AS total FROM wait_request WHERE to_id = '$id' and to_position = '$position'";
+      $sql = "INSERT INTO complete_request (student_id, teacher_id, type, time)";
+      $date = date("Y-m-d H:i:s");
+      $sql = $sql." VALUES('$student_id', '$teacher_id', '$type', '$date')";
+
+      $result = $mysqli->query($sql);
+
+
+    }
+
+    function countRequest($id, $position, $type){
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+
+      $sql = "SELECT COUNT(*) AS total FROM wait_request WHERE to_id = '$id' and to_position = '$position' and type = '$type'";
 
       $result = $mysqli->query($sql);
       if ($result){

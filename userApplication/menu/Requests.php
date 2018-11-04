@@ -72,10 +72,10 @@
                 include("RequestsController.php");
                 $requestsController = new RequestsController;
 
-                $result = $requestsController->loadRequest($_SESSION['userPossition'], $_SESSION['userId'], $pageNum);
+                $result = $requestsController->loadRequest($_SESSION['userPossition'], $_SESSION['userId'], $pageNum, "matching");
 
                 while ($row = $result->fetch_assoc()){
-                  echo "<tr onclick='location.href=\"clickedRequest.php?pageNum=".$pageNum."&position=student\";'>";
+                  echo "<tr onclick='location.href=\"clickedRequest.php?pageNum=".$pageNum."&type=matching\";'>";
                     echo "<td scope='row'>".$pageNum."</td>";
                     echo "<td scope='row'>".$row['name']."</td>";
                     echo "<td scope='row'>".$row['course1']."</td>";
@@ -91,7 +91,7 @@
         <div class="text-center">
           <ul class="pagination">
             <?php
-              $count = $requestsController->countRequest($_SESSION['userId'], $_SESSION['userPossition']);
+              $count = $requestsController->countRequest($_SESSION['userId'], $_SESSION['userPossition'], "matching");
               $count = $count / 20;
               $a = 0;
               while ($a <= $count){
