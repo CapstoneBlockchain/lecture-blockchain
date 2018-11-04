@@ -60,8 +60,23 @@
       }
     }
 
-    function deleteWaitRequest($to_id, $from_id, $type, ){
+    function deleteWaitRequest($to_id, $from_id, $type, $to_position){
+      include("../config.php");
 
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+
+      $sql = "DELETE FROM wait_request WHERE to_id = '$to_id' and from_id = '$from_id' and type = '$type' and to_position = '$to_position'";
+
+      $result = $mysqli->query($sql);
+
+      if ($result){
+        echo '<script type="text/javascript">
+              alert("Success.");
+              location.href="Requests.php";
+              </script>';
+      } else {
+        return false;
+      }
     }
 
     function completeRequest($teacher_id, $student_id, $type){
@@ -75,7 +90,11 @@
 
       $result = $mysqli->query($sql);
 
-
+      if ($result){
+        return $result;
+      } else {
+        return false;
+      }
     }
 
     function countRequest($id, $position, $type){
