@@ -150,7 +150,7 @@
     </table>
     <div class="">
       <?php
-        echo '<input type="button" class="btn-dark" value="Request" onclick="location.href=\'registerWaitUser.php?from_id='.$_SESSION['id'].'&type=matching\'">';
+        echo '<input type="button" class="btn-dark" value="Request" onclick="location.href=\'registerWaitUser.php?from_id='.$_SESSION['userId'].'&type=matching\'">';
         if ($_SESSION['userPossition'] == 'student'){
           echo '<input type="button" class="btn-dark" value="Counseling" onclick="location.href=\'registerWaitUser.php?from_id='.$row['id'].'&type=counseling\'">';
         }

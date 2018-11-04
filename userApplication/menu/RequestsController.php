@@ -60,8 +60,8 @@
       }
     }
 
-    function deleteWaitRequest(){
-      
+    function deleteWaitRequest($to_id, $from_id, $type, ){
+
     }
 
     function completeRequest($teacher_id, $student_id, $type){
