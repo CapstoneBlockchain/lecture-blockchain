@@ -28,6 +28,34 @@
       }
     }
 
+    function clickUser($position,$id,$pageNum, $userNum){
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $minNum = $pageNum * 20;
+      $maxNum = $minNum + 20;
+
+      if($position == 'teacher'){
+        $sql = "SELECT * FROM teacher JOIN complete_request ON id=teacher_id WHERE student_id='$id' ORDER BY id DESC LIMIT $minNum, $maxNum";
+      }
+      else{
+        $sql = "SELECT * FROM student JOIN complete_request ON id=student_id WHERE teacher_id='$id' ORDER BY id DESC LIMIT $minNum, $maxNum";
+      }
+
+      $result = $mysqli->query($sql);
+
+      $userNum = $userNum % 20;
+      $i = 1;
+
+      while ($row = $result->fetch_assoc()){
+        if ($i == $userNum){
+          return $row;
+        } else {
+          $i = $i + 1;
+        }
+      }
+    }
+
     function countUser($position){
       include("../config.php");
 

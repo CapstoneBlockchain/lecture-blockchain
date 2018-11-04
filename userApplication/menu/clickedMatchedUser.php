@@ -49,24 +49,17 @@
   <div id="request_table" align="center">
     <table align="center" class="table-bordered table">
             <tr>
-                <th class="">&nbsp;&nbsp;ID</th>
-                <td class="memberinput">
-                  <?php
-                    include("SearchController.php");
-                    $searchController = new SearchController;
-
-                    $userNum = $_GET['pageNum'];
-                    $pageNum = ($userNum - ($userNum % 20)) / 20;
-                    $row = $searchController->clickUser($_GET['position'], $pageNum, $userNum);
-
-                    echo '<textfield>'.$row['id'].'</textfield>';
-                   ?>
-                </td>
-            </tr>
-            <tr>
                 <th class="">&nbsp;&nbsp;Name</th>
                 <td class="memberinput">
                   <?php
+                    include("MyPageController.php");
+                    $mypageController = new MyPageController;
+
+                    $userNum = $_GET['pageNum'];
+                    $basicId = $_GET['basicId'];
+                    $pageNum = ($userNum - ($userNum % 20)) / 20;
+                    $row = $mypageController->clickUser($_GET['position'],$basicId, $pageNum, $userNum);
+
                     echo '<textfield>'.$row['name'].'</textfield>';
                    ?>
                 </td>
