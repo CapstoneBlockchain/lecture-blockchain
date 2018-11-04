@@ -95,7 +95,7 @@
           // 본인이 학생인 경우. 선생 정보를 나열해야한다.
           if($position == 'student'){
             while ($row = $result->fetch_assoc()){
-              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&position=teacher\";'>";
+              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&basicId=".$_SESSION['userId']."&position=teacher\";'>";
                 echo "<td scope='row'>".$pageNum."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
@@ -111,7 +111,7 @@
           // 본인이 선생인 경우. 학생 정보를 나열해야한다.
           else{
             while ($row = $result->fetch_assoc()){
-              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&position=student\";'>";
+              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&basicId=".$_SESSION['userId']."&position=student\";'>";
                 echo "<td scope='row'>".$pageNum."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
