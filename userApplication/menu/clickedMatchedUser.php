@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="menu.css">
+    <style>
+    .star-input>.input,
+    .star-input>.input>label:hover,
+    .star-input>.input>input:focus+label,
+    .star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../img/grade_img.png')no-repeat;}
+    .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
+    .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+    .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+    star-input>.input.focus{outline:1px dotted #ddd;}
+    .star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+    .star-input>.input>label:hover,
+    .star-input>.input>input:focus+label,
+    .star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+    .star-input>.input>label:hover~label{background-image: none;}
+    .star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+    .star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+    .star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+    .star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+    .star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+    </style>
 </head>
 <body>
 
@@ -150,38 +170,60 @@
   </div>
 
   <hr style="border-color:#596067;">
-
-  <div id="reviewTable" align="center">
-    <div class="row" style="margin-top:40px;">
-		<div class="col-md-6">
-    	<div class="well well-sm">
-            <div class="text-right">
-                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
-            </div>
-
-            <div class="row" id="post-review-box" style="display:none;">
-                <div class="col-md-12">
-                    <form accept-charset="UTF-8" action="" method="post">
-                        <input id="ratings-hidden" name="rating" type="hidden">
-                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-
-                        <div class="text-right">
-                            <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-		</div>
-	</div>
 </div>
 
+<?php
+  include("SearchController.php");
+
+  $searchController = new SearchController;
+
+  $review = $searchController->searchReview($row['id'], $_SESSION['userId'], $_GET['type']);
+
+  if ($_SESSION['userPossition'] == 'student' && !$review){
+ ?>
+
+<div id="reviewTable" style="padding-left: 25%;padding-right: 25%; padding-bottom: 100px;">
+  <form class="" action="review.php?from_id=<?php echo $row['id']; ?>&type=<?php echo $_GET['type']; ?>" method="post">
+    <div class="review" style="display:inline;">
+      <textfield><?php echo $_SESSION['userName']; ?></textfield>
+      <span class="star-input" style="padding-bottom:50px;">
+        <span class="input">
+          <input type="radio" name="star-input" value="1" id="p1">
+          <label for="p1">1</label>
+          <input type="radio" name="star-input" value="2" id="p2">
+          <label for="p2">2</label>
+          <input type="radio" name="star-input" value="3" id="p3">
+          <label for="p3">3</label>
+          <input type="radio" name="star-input" value="4" id="p4">
+          <label for="p4">4</label>
+          <input type="radio" name="star-input" value="5" id="p5">
+          <label for="p5">5</label>
+        </span>
+      </span>
+      <div class="review-content" style="width:100%;padding-bottom:5px;">
+        <textarea name="review" class="form-control" rows="3" cols="100"></textarea>
+      </div>
+      <div align="right">
+        <input type="submit" value="submit" class="btn-dark">
+      </div>
+    </div>
+  </form>
+</div>
+
+<?php
+}
+
+if ($review){
+  ?>
+
+
+
+<?php
+}
+ ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="star.jsS"></script>
 </body>
 </html>

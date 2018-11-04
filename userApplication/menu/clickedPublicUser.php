@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="menu.css">
+    <style>
+    .star-input>.input,
+    .star-input>.input>input:focus+label,
+    .star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../img/grade_img.png');}
+    .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
+    .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+    .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+    star-input>.input.focus{outline:1px dotted #ddd;}
+    .star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+    .star-input>.input>input:focus+label,
+    .star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+    </style>
 </head>
 <body>
 
@@ -158,6 +170,78 @@
 
     </div>
   </div>
+  <hr style="border-color:#596067;">
+</div>
+
+<div id="reviewTable" style="padding-left: 25%;padding-right: 25%; padding-bottom: 100px;">
+  <?php
+
+    $review = $searchController->searchReviewList($row['id']);
+
+    $plabel = 1;
+
+    if ($review){
+      while ($row_review = $review->fetch_assoc()){
+   ?>
+    <div class="review" style="display:inline;" align="left">
+      <span class="star-input" style="padding-bottom:50px;">
+        <span class="input">
+          <style>
+          .star-input>.input>label[for="<?php echo "p".$plabel; ?>"]{width:30px;z-index:5;}
+          </style>
+          <input type="radio" name="star-input" value="1" id="<?php echo "p".$plabel; ?>" <?php if ($row_review['grade'] == 1) echo "checked"; ?> disabled>
+          <label for="<?php echo "p".$plabel; ?>">1</label>
+          <?php $plabel = $plabel + 1; ?>
+
+
+
+          <style>
+          .star-input>.input>label[for="<?php echo "p".$plabel; ?>"]{width:60px;z-index:4;}
+          </style>
+          <input type="radio" name="star-input" value="2" id="<?php echo "p".$plabel; ?>" <?php if ($row_review['grade'] == 2) echo "checked"; ?> disabled>
+          <label for="<?php echo "p".$plabel; ?>">2</label>
+          <?php $plabel = $plabel + 1; ?>
+
+
+          <style>
+          .star-input>.input>label[for="<?php echo "p".$plabel; ?>"]{width:90px;z-index:3;}
+          </style>
+          <input type="radio" name="star-input" value="3" id="<?php echo "p".$plabel; ?>" <?php if ($row_review['grade'] == 3) echo "checked"; ?> disabled>
+          <label for="<?php echo "p".$plabel; ?>">3</label>
+          <?php $plabel = $plabel + 1; ?>
+
+
+          <style>
+          .star-input>.input>label[for="<?php echo "p".$plabel; ?>"]{width:120px;z-index:2;}
+          </style>
+          <input type="radio" name="star-input" value="4" id="<?php echo "p".$plabel; ?>" <?php if ($row_review['grade'] == 4) echo "checked"; ?> disabled>
+          <label for="<?php echo "p".$plabel; ?>">4</label>
+          <?php $plabel = $plabel + 1; ?>
+
+
+          <style>
+          .star-input>.input>label[for="<?php echo "p".$plabel; ?>"]{width:150px;z-index:1;}
+          </style>
+          <input type="radio" name="star-input" value="5" id="<?php echo "p".$plabel; ?>" <?php if ($row_review['grade'] == 5) echo "checked"; ?> disabled>
+          <label for="<?php echo "p".$plabel; ?>">5</label>
+          <?php $plabel = $plabel + 1; ?>
+        </span>
+      </span>
+      <div class="review-period" style="padding-bottom:5px;">
+        <textfield><?php echo "Period : ".$row_review['complete_time']." ~ ".$row_review['review_time']; ?></textfield>
+      </div>
+      <div class="review-type" style="padding-bottom:10px;">
+        <textfield><?php echo "Type : ".$row_review['type']; ?></textfield>
+      </div>
+      <div class="review-content" style="width:100%;padding-bottom:5px;">
+        <textarea name="review" class="form-control" rows="3" cols="100" disabled><?php echo $row_review['content']; ?></textarea>
+      </div>
+    </div>
+
+    <?php
+    }
+    }
+      ?>
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

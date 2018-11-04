@@ -83,9 +83,11 @@
       $result = $mysqli->query($sql);
       if ($row = $result->fetch_assoc()){
         echo '<script type="text/javascript">
-              alert("Already Request.");
+              alert("Already wait Request.");
               location.href="../MainPage.php";
               </script>';
+
+        return;
       }
 
       if ($_SESSION['userPossition'] == 'teacher'){
@@ -96,11 +98,11 @@
 
       $result = $mysqli->query($sql);
       if ($result){
-      } else {
         echo '<script type="text/javascript">
-              alert("Already Request.");
+              alert("Already complete Request.");
               location.href="../MainPage.php";
               </script>';
+        return;
       }
 
       $sql = "INSERT INTO wait_request (to_id, to_position, from_id, from_position, type)";
@@ -137,6 +139,60 @@
       $result = $mysqli->query($sql);
       if ($row = $result->fetch_assoc()){
         return true;
+      } else {
+        return false;
+      }
+    }
+
+    function registerReview($teacher_id, $student_id, $type, $grade, $content){
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+
+      $sql = "SELECT time FROM complete_request WHERE teacher_id = '$teacher_id' and student_id = '$student_id' and type = '$type'";
+
+      $result = $mysqli->query($sql);
+      $row = $result->fetch_assoc();
+      $complete_time = $row['time'];
+
+      $sql = "INSERT INTO review (student_id, teacher_id, type, complete_time, review_time, grade, content)";
+      $review_time = date("Y-m-d H:i:s");
+      $sql = $sql." VALUES('$student_id', '$teacher_id', '$type', '$complete_time', '$review_time', $grade, '$content')";
+
+      $result = $mysqli->query($sql);
+      if ($result){
+        echo '<script type="text/javascript">
+              alert("Success.");
+              location.href="MyPage_matched.php";
+              </script>';
+      } else {
+        return false;
+      }
+    }
+
+    function searchReview($teacher_id, $student_id, $type){
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $sql = "SELECT * FROM review WHERE teacher_id = '$teacher_id' and student_id = '$student_id' and type = '$type'";
+
+      $result = $mysqli->query($sql);
+      if ($row = $result->fetch_assoc()){
+        return $row;
+      } else {
+        return false;
+      }
+    }
+
+    function searchReviewList($teacher_id){
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $sql = "SELECT * FROM review WHERE teacher_id = '$teacher_id'";
+
+      $result = $mysqli->query($sql);
+      if ($result){
+        return $result;
       } else {
         return false;
       }
