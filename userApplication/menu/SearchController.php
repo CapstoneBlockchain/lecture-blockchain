@@ -88,6 +88,21 @@
               </script>';
       }
 
+      if ($_SESSION['userPossition'] == 'teacher'){
+        $sql = "SELECT * FROM complete_request WHERE student_id = '$to_id' and teacher_id = '$from_id' and type = '$type' and from_position = '$from_position'";
+      } else {
+        $sql = "SELECT * FROM complete_request WHERE teacher_id = '$to_id' and student_id = '$from_id' and type = '$type' and from_position = '$from_position'";
+      }
+
+      $result = $mysqli->query($sql);
+      if ($result){
+      } else {
+        echo '<script type="text/javascript">
+              alert("Already Request.");
+              location.href="../MainPage.php";
+              </script>';
+      }
+
       $sql = "INSERT INTO wait_request (to_id, to_position, from_id, from_position, type)";
 
       $from_position = $_SESSION['userPossition'];

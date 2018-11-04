@@ -8,7 +8,9 @@
 
   $requestsController = new RequestsController;
 
-  $requestsController->deleteWaitRequest();
+  $type = $_GET['type'];
+
+  $requestsController->deleteWaitRequest($_SESSION['userId'], $_GET['from_id'], $type, $_SESSION['userPossition']);
 
   if ($_SESSION['userPossition'] == 'teacher'){
     $teacher_id = $_SESSION['userId'];
@@ -17,8 +19,6 @@
     $teacher_id = $_GET['from_id'];
     $student_id = $_SESSION['userId'];
   }
-
-  $type = $_GET['type'];
 
   $requestsController->completeRequest($teacher_id, $student_id, $type);
  ?>
