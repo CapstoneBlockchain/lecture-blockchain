@@ -46,7 +46,7 @@
 </div>
 
 <div id="content" align="center">
-  <div id="request_table" align="center">
+  <div id="request_table" align="center" style="padding-bottom:50px;">
     <table align="center" class="table-bordered table">
             <tr>
                 <th class="">&nbsp;&nbsp;Name</th>
@@ -148,6 +148,36 @@
             </tr>
     </table>
   </div>
+
+  <hr style="border-color:#596067;">
+
+  <div id="reviewTable" align="center">
+    <div class="row" style="margin-top:40px;">
+		<div class="col-md-6">
+    	<div class="well well-sm">
+            <div class="text-right">
+                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
+            </div>
+
+            <div class="row" id="post-review-box" style="display:none;">
+                <div class="col-md-12">
+                    <form accept-charset="UTF-8" action="" method="post">
+                        <input id="ratings-hidden" name="rating" type="hidden">
+                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+
+                        <div class="text-right">
+                            <div class="stars starrr" data-rating="0"></div>
+                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+		</div>
+	</div>
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
