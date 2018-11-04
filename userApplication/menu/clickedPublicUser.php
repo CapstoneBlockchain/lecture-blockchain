@@ -68,7 +68,9 @@
             <tr>
                 <th class="">&nbsp;&nbsp;Tel</th>
                 <td>
-                  <textfield>Private</textfield>
+                  <?php
+                    echo '<textfield>'.$row['tel1'].' - '.$row['tel2'].' - '.$row['tel3'].'</textfield>';
+                   ?>
                 </td>
             </tr>
             <?php
@@ -89,20 +91,20 @@
                 echo '<tr>';
                   echo '<th>&nbsp;&nbsp;Degree</th>';
                   echo '<td>';
-                    echo '<textfield>Private</textfield>';
+                    echo '<textfield>'.$row['degree'].'</textfield>';
                   echo '</td>';
                 echo '</tr>';
                 echo '<tr>';
                   echo '<th>&nbsp;&nbsp;career</th>';
                   echo '<td>';
-                    echo '<textfield>Private</textfield>';
+                    echo '<textfield>'.$row['career'].'</textfield>';
                   echo '</td>';
                 echo '</tr>';
               } else {
                 echo '<tr>';
                 echo '<th>&nbsp;&nbsp;School</th>';
                 echo '<td>';
-                  echo '<textfield>Private</textfield>';
+                  echo '<textfield>'.$row['school'].'</textfield>';
                 echo '</td>';
                 echo '</tr>';
               }
@@ -148,11 +150,12 @@
     </table>
     <div class="">
       <?php
-        if ($_SESSION['userPossition'] != $_GET['position']){
-          $pageNum = $_GET['pageNum'];
-          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
+        echo '<input type="button" class="btn-dark" value="Request" onclick="location.href=\'registerWaitUser.php?from_id='.$row['id'].'&type=matching\'">';
+        if ($_SESSION['userPossition'] == 'student'){
+          echo '<input type="button" class="btn-dark" value="Counseling" onclick="location.href=\'registerWaitUser.php?from_id='.$row['id'].'&type=counseling\'">';
         }
        ?>
+
     </div>
   </div>
 </div>

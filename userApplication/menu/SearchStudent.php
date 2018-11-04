@@ -71,7 +71,12 @@
             $result = $searchController->loadUser('student', $pageNum);
 
             while ($row = $result->fetch_assoc()){
-              echo "<tr onclick='location.href=\"clickedUser.php?pageNum=".$pageNum."&position=student\";'>";
+              if ($searchController->searchLookup($row['id'])){
+                $pageName = 'clickedPublicUser.php';
+              } else {
+                $pageName = 'clickedUser.php';
+              }
+              echo "<tr onclick='location.href=\"".$pageName."?pageNum=".$pageNum."&position=student\";'>";
                 echo "<td scope='row'>".$pageNum."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
