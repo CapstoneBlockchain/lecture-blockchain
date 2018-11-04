@@ -7,23 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="menu.css">
-    <style>
-    .star-input>.input,
-    .star-input>.input>input:focus+label,
-    .star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../img/grade_img.png')no-repeat;}
-    .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
-    .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
-    .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
-    star-input>.input.focus{outline:1px dotted #ddd;}
-    .star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
-    .star-input>.input>input:focus+label,
-    .star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
-    .star-input>.input>label[for="p1"]{width:30px;z-index:5;}
-    .star-input>.input>label[for="p2"]{width:60px;z-index:4;}
-    .star-input>.input>label[for="p3"]{width:90px;z-index:3;}
-    .star-input>.input>label[for="p4"]{width:120px;z-index:2;}
-    .star-input>.input>label[for="p5"]{width:150px;z-index:1;}
-    </style>
 </head>
 <body>
 
@@ -167,7 +150,7 @@
       <?php
         if ($_SESSION['userPossition'] != $_GET['position']){
           $pageNum = $_GET['pageNum'];
-          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
+          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$_SESSION['userId'].'&pageNum='.$pageNum.'\'">';
         }
        ?>
     </div>
@@ -176,44 +159,32 @@
   <hr style="border-color:#596067;">
 </div>
 
-<?php
-
-  $review = $searchController->searchReviewList($row['id']);
-
-  if ($review){
-    while ($row_review = $review->fetch_assoc()){
- ?>
-
 <div id="reviewTable" style="padding-left: 25%;padding-right: 25%; padding-bottom: 100px;">
-    <div class="review" style="display:inline;">
-      <textfield><?php echo $searchController->searchStudentNameById($row_review['student_id']); ?></textfield>
-      <span class="star-input" style="padding-bottom:50px;">
-        <span class="input">
-          <input type="radio" name="star-input" value="1" id="p1">
-          <label for="p1">1</label>
-          <input type="radio" name="star-input" value="2" id="p2">
-          <label for="p2">2</label>
-          <input type="radio" name="star-input" value="3" id="p3">
-          <label for="p3">3</label>
-          <input type="radio" name="star-input" value="4" id="p4">
-          <label for="p4">4</label>
-          <input type="radio" name="star-input" value="5" id="p5">
-          <label for="p5">5</label>
-        </span>
-      </span>
-      <div class="review-content" style="width:100%;padding-bottom:5px;">
-        <textarea name="review" class="form-control" rows="3" cols="100"></textarea>
+  <?php
+
+    $review = $searchController->searchReviewList($row['id']);
+
+    if ($review){
+      while ($row_review = $review->fetch_assoc()){
+   ?>
+    <div class="review" style="display:inline;" align="left">
+      <div><img src="../img/<?php echo $row_review['grade']; ?>.png"></div>
+      <div class="review-period" style="padding-bottom:5px;">
+        <textfield><?php echo "Period : ".$row_review['complete_time']." ~ ".$row_review['review_time']; ?></textfield>
       </div>
-      <div align="right">
-        <input type="submit" value="submit" class="btn-dark">
+      <div class="review-type" style="padding-bottom:10px;">
+        <textfield><?php echo "Type : ".$row_review['type']; ?></textfield>
+      </div>
+      <div class="review-content" style="width:100%;padding-bottom:5px;">
+        <textarea name="review" class="form-control" rows="3" cols="100" disabled><?php echo $row_review['content']; ?></textarea>
       </div>
     </div>
-</div>
 
-<?php
-}
-}
-  ?>
+    <?php
+    }
+    }
+      ?>
+</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

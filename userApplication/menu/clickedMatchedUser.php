@@ -216,7 +216,23 @@
 if ($review){
   ?>
 
+  <div id="reviewTable" style="padding-left: 25%;padding-right: 25%; padding-bottom: 100px;">
+    <?php
 
+     ?>
+      <div class="review" style="display:inline;" align="left">
+        <div><img src="../img/<?php echo $review['grade']; ?>.png"></div>
+        <div class="review-period" style="padding-bottom:5px;">
+          <textfield><?php echo "Period : ".$review['complete_time']." ~ ".$review['review_time']; ?></textfield>
+        </div>
+        <div class="review-type" style="padding-bottom:10px;">
+          <textfield><?php echo "Type : ".$review['type']; ?></textfield>
+        </div>
+        <div class="review-content" style="width:100%;padding-bottom:5px;">
+          <textarea name="review" class="form-control" rows="3" cols="100" disabled><?php echo $review['content']; ?></textarea>
+        </div>
+      </div>
+  </div>
 
 <?php
 }
