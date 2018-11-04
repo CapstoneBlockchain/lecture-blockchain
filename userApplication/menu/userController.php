@@ -63,7 +63,9 @@
         return;
       }
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $mysqli->set_charset('utf8');
       $insertSql = "UPDATE teacher SET name = '$name', tel1 = '$tel1'
       , tel2 = '$tel2', tel3 = '$tel3', university = '$univ'
@@ -137,8 +139,9 @@
               </script>';
         return;
       }
+      include("../config.php");
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $mysqli->set_charset('utf8');
       $insertSql = "UPDATE student SET name = '$name', tel1 = '$tel1'

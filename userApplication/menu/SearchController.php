@@ -6,7 +6,9 @@
   class SearchController{
 
     function loadUser($position, $pageNum){
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $minNum = ($pageNum - 1) * 20;
       $maxNum = $minNum + 20;
 
@@ -22,7 +24,9 @@
     }
 
     function clickUser($position, $pageNum, $userNum){
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -43,7 +47,9 @@
     }
 
     function countUser($position){
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $sql = "SELECT COUNT(*) AS total FROM $position WHERE 1";
 
       $result = $mysqli->query($sql);

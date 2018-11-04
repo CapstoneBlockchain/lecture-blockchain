@@ -57,8 +57,6 @@
             <thead>
                 <th>index</th>
                 <th>Name</th>
-                <th>Gender</th>
-                <th>Position</th>
                 <th>Accept</th>
             </thead>
             <tbody>

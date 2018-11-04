@@ -61,7 +61,9 @@
                 <th class="">&nbsp;&nbsp;ID</th>
                 <td class="memberinput">
                   <?php
-                    $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+                    include("../config.php");
+
+                    $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
                     $sql = "SELECT * FROM ".$_SESSION['userPossition']." WHERE id = '".$_SESSION['userId']."'";
                     $result = $mysqli->query($sql);

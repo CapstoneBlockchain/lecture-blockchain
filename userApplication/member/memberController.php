@@ -14,7 +14,9 @@
         return;
       }
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $checkSql = "SELECT id FROM teacher WHERE id = '".$id."'";
       $result = $mysqli->query($checkSql);
@@ -93,7 +95,9 @@
 
       $password = password_hash($password, PASSWORD_DEFAULT);
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO teacher (id, password, name, tel1, tel2, tel3
         , university, major, degree, career, course1, course2
@@ -129,7 +133,9 @@
         return;
       }
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $checkSql = "SELECT id FROM student WHERE id = '".$id."'";
       $result = $mysqli->query($checkSql);
@@ -200,7 +206,9 @@
 
       $password = password_hash($password, PASSWORD_DEFAULT);
 
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO student (id, password, name, tel1, tel2, tel3
@@ -232,7 +240,9 @@
 
     function logIn_teacher($id, $password){
       session_start();
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $user_id = $_POST['id'];
       $user_pw = $_POST['password'];
@@ -265,7 +275,9 @@
 
     function logIn_student($id, $password){
       session_start();
-      $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+      include("../config.php");
+
+      $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
       $user_id = $_POST['id'];
       $user_pw = $_POST['password'];

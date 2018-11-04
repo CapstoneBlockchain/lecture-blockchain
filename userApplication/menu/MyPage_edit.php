@@ -58,8 +58,10 @@
 
   <?php
 
-  include 'userController.php';
-  $mysqli = new mysqli('localhost', 'root', '1234', 'lecturechain');
+  include('userController.php');
+  include("../config.php");
+
+  $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
   $sql = "SELECT * FROM ".$_SESSION['userPossition']." WHERE id = '".$_SESSION['userId']."'";
   $result = $mysqli->query($sql);
