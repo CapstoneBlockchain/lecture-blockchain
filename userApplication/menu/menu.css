@@ -13,12 +13,8 @@
 
 #content {
   padding-top: 30px;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.click_td {
-    display:block;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
 .search-table {
@@ -32,18 +28,4 @@
 
 #reviewTable {
   width: 100%;
-}
-
-
-.animated {
-   -webkit-transition: height 0.2s;
-   -moz-transition: height 0.2s;
-   transition: height 0.2s;
-}
-
-.stars
-{
-   margin: 20px 0;
-   font-size: 24px;
-   color: #d17581;
 }
