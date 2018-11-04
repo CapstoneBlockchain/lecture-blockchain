@@ -121,7 +121,7 @@
             echo '<tr>';
               echo '<th>&nbsp;&nbsp;Final Education</th>';
               echo '<td class="memberinput">';
-                echo 'University <input id="university" class="form-control-sm" type="text" name="university" value="'.$row['univ'].'">';
+                echo 'University <input id="university" class="form-control-sm" type="text" name="university" value="'.$row['university'].'">';
                 echo 'Major <input id="major" class="form-control-sm" type="text" name="major" value="'.$row['major'].'"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 echo 'Degree <select id="degree" name="education" class="form-control-sm">';
                 echo '<option value="">::Choice::</option>';

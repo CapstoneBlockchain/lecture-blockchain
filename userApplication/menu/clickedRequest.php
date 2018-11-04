@@ -48,21 +48,15 @@
 <div id="content" align="center">
   <div id="request_table" align="center">
     <table align="center" class="table-bordered table">
-            <tr>
-                <th class="">&nbsp;&nbsp;ID</th>
-                <td class="memberinput">
-                  <?php
-                    include("RequestsController.php");
-                    $requestsController = new RequestsController;
+      <?php
+        include("RequestsController.php");
+        $requestsController = new RequestsController;
 
-                    $userNum = $_GET['pageNum'];
-                    $pageNum = ($userNum - ($userNum % 20)) / 20;
-                    $row = $requestsController->clickRequest($_GET['position'], $_SESSION['userId'], $pageNum, $userNum);
+        $userNum = $_GET['pageNum'];
+        $pageNum = ($userNum - ($userNum % 20)) / 20;
+        $row = $requestsController->clickRequest($_SESSION['userPossition'], $_SESSION['userId'], $pageNum, $userNum, $_GET['type']);
 
-                    echo '<textfield>'.$row['id'].'</textfield>';
-                   ?>
-                </td>
-            </tr>
+       ?>
             <tr>
                 <th class="">&nbsp;&nbsp;Name</th>
                 <td class="memberinput">
@@ -81,7 +75,7 @@
             </tr>
             <?php
 
-              if ($_GET['position'] == "teacher"){
+              if ($_SESSION['userPossition'] == "student"){
                 echo '<tr>';
                   echo '<th>&nbsp;&nbsp;University</th>';
                   echo '<td>';
@@ -149,11 +143,16 @@
                   <?php
                     echo '<textarea id="student_about_me" readonly="readonly"
                      name="aboutme" cols="55" rows="15"
-                      class="form-control">'.$row['about'].'</textarea>';
+                     class="form-control">'.$row['about'].'</textarea>';
                    ?>
                 </td>
             </tr>
     </table>
+    <div class="">
+      <?php
+        echo '<input type="button" class="btn-dark" value="'.$_GET['type'].'" onclick="location.href=\'completeRequest.php?from_id='.$row['id'].'&type='.$_GET['type'].'\'">';
+       ?>
+    </div>
   </div>
 </div>
 
