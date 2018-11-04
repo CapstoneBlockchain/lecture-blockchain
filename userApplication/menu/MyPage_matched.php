@@ -55,6 +55,94 @@
     <li ><a href="MyPage_usage.php" style="color:#3a3f44;">Usage History</a></li>
   </ul>
 
+  <div id="request_table" align="center">
+    <table class="search-table table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">index</th>
+          <th scope="col">Name</th>
+          <th scope="col">Course 1</th>
+          <th scope="col">Course 2</th>
+          <th scope="col">
+            <?php
+              if($_SESSION['userPossition'] == 'teacher'){
+                echo "School Year";
+              }
+              else{
+                echo "University";
+              }
+            ?></th>
+            <th scope="col">Type</th>
+            <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          if (isset($_GET['pageNum'])){
+            $pageNum = $_GET['pageNum'];
+          } else {
+            $pageNum = 1;
+          }
+
+          include("MypageController.php");
+          $mypageController = new MyPageController;
+
+          $position = $_SESSION['userPossition'];
+          $iam = $_SESSION['userId'];
+
+          $result = $mypageController->loadUser($position,$iam,$pageNum);
+
+          // 본인이 학생인 경우. 선생 정보를 나열해야한다.
+          if($position == 'student'){
+            while ($row = $result->fetch_assoc()){
+              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&position=teacher\";'>";
+                echo "<td scope='row'>".$pageNum."</td>";
+                echo "<td scope='row'>".$row['name']."</td>";
+                echo "<td scope='row'>".$row['course1']."</td>";
+                echo "<td scope='row'>".$row['course2']."</td>";
+                echo "<td scope='row'>".$row['university']."</td>";
+                echo "<td scope='row'>".$row['type']."</td>";
+                echo "<td scope='row'>".$row['time']."</td>";
+              echo "</tr>";
+
+              $pageNum = $pageNum + 1;
+            }
+          }
+          // 본인이 선생인 경우. 학생 정보를 나열해야한다.
+          else{
+            while ($row = $result->fetch_assoc()){
+              echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&position=student\";'>";
+                echo "<td scope='row'>".$pageNum."</td>";
+                echo "<td scope='row'>".$row['name']."</td>";
+                echo "<td scope='row'>".$row['course1']."</td>";
+                echo "<td scope='row'>".$row['course2']."</td>";
+                echo "<td scope='row'>".$row['school']."</td>";
+                echo "<td scope='row'>".$row['type']."</td>";
+                echo "<td scope='row'>".$row['time']."</td>";
+              echo "</tr>";
+
+              $pageNum = $pageNum + 1;
+            }
+          }
+         ?>
+      </tbody>
+    </table>
+
+    <div class="text-center">
+      <ul class="pagination">
+        <?php
+          $count = $mypageController->countUser('complete_request');
+          $count = $count / 20;
+          $a = 0;
+          while ($a <= $count){
+            echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+            $a = $a + 1;
+          }
+         ?>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
