@@ -8,8 +8,8 @@
 
   $searchController = new SearchController;
 
-  $to_id = $_SESSION['userId'];
-  $from_id = $_GET['from_id'];
+  $to_id = $_GET['to_id'];
+  $from_id = $_SESSION['userId'];
   $type = $_GET['type'];
 
   $searchController->registerWaitUser($to_id, $from_id, $type);
