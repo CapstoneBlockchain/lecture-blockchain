@@ -166,7 +166,7 @@
 
     $review = $searchController->searchReviewList($row['id']);
 
-    if ($review){
+    if ($review && $_GET['position'] == 'teacher'){
       while ($row_review = $review->fetch_assoc()){
    ?>
     <div class="review" style="display:inline;" align="left">
