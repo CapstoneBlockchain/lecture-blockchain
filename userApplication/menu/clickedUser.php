@@ -150,7 +150,7 @@
       <?php
         if ($_SESSION['userPossition'] != $_GET['position']){
           $pageNum = $_GET['pageNum'];
-          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$_SESSION['userId'].'&pageNum='.$pageNum.'\'">';
+          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
         }
        ?>
     </div>
@@ -164,7 +164,7 @@
 
     $review = $searchController->searchReviewList($row['id']);
 
-    if ($review){
+    if ($review && $_GET['position'] == 'teacher'){
       while ($row_review = $review->fetch_assoc()){
    ?>
     <div class="review" style="display:inline;" align="left">
