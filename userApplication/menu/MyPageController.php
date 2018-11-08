@@ -8,7 +8,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
-      $minNum = ($pageNum - 1) * 20;
+      $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
       // 학생일 경우 선생 table과, 선생일 경우 학생 table과 join 된다.
@@ -45,7 +45,7 @@
       $result = $mysqli->query($sql);
 
       $userNum = $userNum % 20;
-      $i = 1;
+      $i = 0;
 
       while ($row = $result->fetch_assoc()){
         if ($i == $userNum){
@@ -60,7 +60,14 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
-      $sql = "SELECT COUNT(*) AS total FROM $position WHERE 1";
+
+      $id = $_SESSION['userId'];
+
+      if ($_SESSION['userPossition'] == 'teacher'){
+        $sql = "SELECT COUNT(*) AS total FROM $position WHERE teacher_id = '$id'";
+      } else {
+        $sql = "SELECT COUNT(*) AS total FROM $position WHERE student_id = '$id'";
+      }
 
       $result = $mysqli->query($sql);
       if ($result){

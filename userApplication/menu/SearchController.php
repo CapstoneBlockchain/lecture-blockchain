@@ -9,7 +9,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
-      $minNum = ($pageNum - 1) * 20;
+      $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
       $sql = "SELECT * FROM $position WHERE 1 ORDER BY id DESC LIMIT $minNum, $maxNum";
@@ -35,7 +35,7 @@
       $result = $mysqli->query($sql);
 
       $userNum = $userNum % 20;
-      $i = 1;
+      $i = 0;
 
       while ($row = $result->fetch_assoc()){
         if ($i == $userNum){

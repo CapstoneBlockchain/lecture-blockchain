@@ -63,12 +63,13 @@
             if (isset($_GET['pageNum'])){
               $pageNum = $_GET['pageNum'];
             } else {
-              $pageNum = 1;
+              $pageNum = 0;
             }
             include("SearchController.php");
             $searchController = new SearchController;
 
             $result = $searchController->loadUser('student', $pageNum);
+            $pageNum = $pageNum * 20;
 
             while ($row = $result->fetch_assoc()){
               if ($searchController->searchLookup($row['id'])){
@@ -77,7 +78,7 @@
                 $pageName = 'clickedUser.php';
               }
               echo "<tr onclick='location.href=\"".$pageName."?pageNum=".$pageNum."&position=student\";'>";
-                echo "<td scope='row'>".$pageNum."</td>";
+                echo "<td scope='row'>".($pageNum + 1)."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
                 echo "<td scope='row'>".$row['course2']."</td>";
@@ -93,10 +94,10 @@
         <ul class="pagination">
           <?php
             $count = $searchController->countUser('student');
-            $count = $count / 20;
+            $count = $count / 21;
             $a = 0;
             while ($a <= $count){
-              echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+              echo '<li><a href="?pageNum='.$a.'" style="color:black;">'.($a + 1).'</a></li>';
               $a = $a + 1;
             }
            ?>

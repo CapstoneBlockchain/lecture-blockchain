@@ -81,7 +81,7 @@
           if (isset($_GET['pageNum'])){
             $pageNum = $_GET['pageNum'];
           } else {
-            $pageNum = 1;
+            $pageNum = 0;
           }
 
           include("MypageController.php");
@@ -91,12 +91,13 @@
           $iam = $_SESSION['userId'];
 
           $result = $mypageController->loadUser($position,$iam,$pageNum);
+          $pageNum = $pageNum * 20;
 
           // 본인이 학생인 경우. 선생 정보를 나열해야한다.
           if($position == 'student'){
             while ($row = $result->fetch_assoc()){
               echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&basicId=".$_SESSION['userId']."&position=teacher&type=".$row['type']."\";'>";
-                echo "<td scope='row'>".$pageNum."</td>";
+                echo "<td scope='row'>".($pageNum + 1)."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
                 echo "<td scope='row'>".$row['course2']."</td>";
@@ -112,7 +113,7 @@
           else{
             while ($row = $result->fetch_assoc()){
               echo "<tr onclick='location.href=\"clickedMatchedUser.php?pageNum=".$pageNum."&basicId=".$_SESSION['userId']."&position=student&type=".$row['type']."\";'>";
-                echo "<td scope='row'>".$pageNum."</td>";
+                echo "<td scope='row'>".($pageNum + 1)."</td>";
                 echo "<td scope='row'>".$row['name']."</td>";
                 echo "<td scope='row'>".$row['course1']."</td>";
                 echo "<td scope='row'>".$row['course2']."</td>";
@@ -132,10 +133,10 @@
       <ul class="pagination">
         <?php
           $count = $mypageController->countUser('complete_request');
-          $count = $count / 20;
+          $count = $count / 21;
           $a = 0;
           while ($a <= $count){
-            echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+            echo '<li><a href="?pageNum='.$a.'" style="color:black;">'.($a + 1).'</a></li>';
             $a = $a + 1;
           }
          ?>

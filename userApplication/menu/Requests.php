@@ -67,16 +67,17 @@
                 if (isset($_GET['pageNum'])){
                   $pageNum = $_GET['pageNum'];
                 } else {
-                  $pageNum = 1;
+                  $pageNum = 0;
                 }
                 include("RequestsController.php");
                 $requestsController = new RequestsController;
 
                 $result = $requestsController->loadRequest($_SESSION['userPossition'], $_SESSION['userId'], $pageNum, "matching");
+                $pageNum = $pageNum * 20;
 
                 while ($row = $result->fetch_assoc()){
                   echo "<tr onclick='location.href=\"clickedRequest.php?pageNum=".$pageNum."&type=matching\";'>";
-                    echo "<td scope='row'>".$pageNum."</td>";
+                    echo "<td scope='row'>".($pageNum + 1)."</td>";
                     echo "<td scope='row'>".$row['name']."</td>";
                     echo "<td scope='row'>".$row['course1']."</td>";
                     echo "<td scope='row'>".$row['course2']."</td>";
@@ -92,10 +93,10 @@
           <ul class="pagination">
             <?php
               $count = $requestsController->countRequest($_SESSION['userId'], $_SESSION['userPossition'], "matching");
-              $count = $count / 20;
+              $count = $count / 21;
               $a = 0;
               while ($a <= $count){
-                echo '<li><a href="?pageNum='.($a + 1).'" style="color:black;">'.($a + 1).'</a></li>';
+                echo '<li><a href="?pageNum='.$a.'" style="color:black;">'.($a + 1).'</a></li>';
                 $a = $a + 1;
               }
              ?>

@@ -10,7 +10,7 @@
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
 
-      $minNum = ($pageNum - 1) * 20;
+      $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
       if ($position == 'teacher'){
@@ -47,7 +47,7 @@
       }
 
       $userNum = $userNum % 20;
-      $i = 1;
+      $i = 0;
 
       $result = $mysqli->query($sql);
 
