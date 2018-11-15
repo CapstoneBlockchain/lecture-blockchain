@@ -47,6 +47,10 @@
 
 
 <div id="content" align="center">
+  <div class="sub-title" align="left" style="padding-bottom:30px;">
+    <h3 style="font-weight:bold;">MyPage</h4>
+  </div>
+
   <ul class="nav nav-tabs">
     <li ><a href="MyPage.php" style="color:#3a3f44;">Information</a></li>
     <li ><a href="MyPage_edit.php" style="color:#3a3f44;">Edit</a></li>
@@ -72,6 +76,7 @@
                 echo "University";
               }
             ?></th>
+            <th scope="col">Gender</th>
             <th scope="col">Type</th>
             <th scope="col">Time</th>
         </tr>
@@ -102,6 +107,7 @@
                 echo "<td scope='row'>".$row['course1']."</td>";
                 echo "<td scope='row'>".$row['course2']."</td>";
                 echo "<td scope='row'>".$row['university']."</td>";
+                echo "<td scope='row'>".$row['gender']."</td>";
                 echo "<td scope='row'>".$row['type']."</td>";
                 echo "<td scope='row'>".$row['time']."</td>";
               echo "</tr>";
@@ -118,6 +124,7 @@
                 echo "<td scope='row'>".$row['course1']."</td>";
                 echo "<td scope='row'>".$row['course2']."</td>";
                 echo "<td scope='row'>".$row['school']."</td>";
+                echo "<td scope='row'>".$row['gender']."</td>";
                 echo "<td scope='row'>".$row['type']."</td>";
                 echo "<td scope='row'>".$row['time']."</td>";
               echo "</tr>";

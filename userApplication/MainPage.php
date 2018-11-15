@@ -14,7 +14,7 @@
   <nav class="navbar navbar-darkgray">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="../MainPage.php" style="color:#ffffff;font-size:25px;">LectureChain</a>
+        <a class="navbar-brand" href="MainPage.php" style="color:#ffffff;font-size:25px;">LectureChain</a>
       </div>
       <ul class="nav">
         <li><a href="menu/SearchTeacher.php" style="color:#ffffff;font-size:16px;">Search Teacher</a></li>
@@ -46,7 +46,63 @@
 </div>
 
 <div id="content" align="center">
+  <div style="padding-top:70px;">
+    <?php
+      include("menu/ItemController.php");
 
+      $itemController = new ItemController;
+      $itemController->checkTodayPeriod();
+     ?>
+    <table class="search-table table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;index</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;Name</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;Course 1</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;Course 2</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;University</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;Gender</th>
+          <th scope="col" style="font-size:15px;" align="center">&nbsp;&nbsp;&nbsp;&nbsp;Coin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $today = $itemController->loadToday();
+          $i = 1;
+
+          while ($i <= 10){
+            $row = $today->fetch_assoc();
+            if ($_SESSION['userPossition'] == "student" && $itemController->searchLookup($row['id'])){
+               $pageName = 'clickedPublicUser.php';
+            } else {
+              $pageName = 'clickedUser.php';
+            }
+
+            $pageNum = $itemController->getPageNum($row['id']);
+            echo "<tr onclick='location.href=\"menu/".$pageName."?pageNum=".$pageNum."&position=teacher\";'>";
+            if ($i == 1){
+              echo "<td align='center' style='width:70px;height:70px;vertical-align:middle;'><img src='img/1st.png' style='width:60px;height:60px;'></td>";
+            } else if ($i == 2){
+              echo "<td align='center' style='width:70px;height:70px;vertical-align:middle;'><img src='img/2nd.png' style='width:50px;height:50px;'></td>";
+            } else if ($i == 3){
+              echo "<td align='center' style='width:70px;height:70px;vertical-align:middle;'><img src='img/3rd.png' style='width:40px;height:40px;'></td>";
+            } else {
+              echo "<td align='center' style='width:70px;height:70px;font-size:15px;vertical-align:middle;'>".$i."</td>";
+            }
+         ?>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['name']; ?></td>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['course1']; ?></td>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['course2']; ?></td>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['university']; ?></td>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['gender']; ?></td>
+         <td style="font-size:17px;vertical-align:middle;" align="center"><?php echo $row['coin']; ?></td>
+
+       <?php $i++;
+       echo "</tr>";
+     } ?>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
