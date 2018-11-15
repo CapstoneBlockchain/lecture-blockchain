@@ -47,6 +47,10 @@
 
 
 <div id="content" align="center">
+  <div class="sub-title" align="left" style="padding-bottom:30px;">
+    <h3 style="font-weight:bold;">Search Teacher</h4>
+  </div>
+
     <div id="teacher_table" align="center">
       <table class="search-table table table-hover">
       <thead>
@@ -56,6 +60,7 @@
           <th scope="col">Course 1</th>
           <th scope="col">Course 2</th>
           <th scope="col">University</th>
+          <th scope="col">Gender</th>
         </tr>
       </thead>
       <tbody>
@@ -68,21 +73,51 @@
           include("SearchController.php");
           $searchController = new SearchController;
 
+          include("ItemController.php");
+          $itemController = new ItemController;
+
+          $itemController->checkTeacherPeriod();
+
           $result = $searchController->loadUser('teacher', $pageNum);
           $pageNum = $pageNum * 20;
 
           while ($row = $result->fetch_assoc()){
+            $bold = false;
+            $background = "";
+            $bolds = $itemController->loadBold($row['id'], 'teacher');
+            $bgs = $itemController->loadBackground($row['id'], 'teacher');
+
+            if ($bolds){
+              $bold = true;
+            }
+
+            if ($bgs){
+              $bg = $bgs->fetch_assoc();
+              $background = $bg['color'];
+            }
+
             if ($searchController->searchLookup($row['id'])){
               $pageName = 'clickedPublicUser.php';
             } else {
               $pageName = 'clickedUser.php';
             }
+            if ($bold){
+              $bold_tag = "font-weight:bold;";
+            } else {
+              $bold_tag = "";
+            }
+            if ($background != ""){
+              $background_tag = "background:".$background.";";
+            } else {
+              $background_tag = "";
+            }
             echo "<tr onclick='location.href=\"".$pageName."?pageNum=".$pageNum."&position=teacher\";'>";
-              echo "<td scope='row'>".($pageNum + 1)."</td>";
-              echo "<td scope='row'>".$row['name']."</td>";
-              echo "<td scope='row'>".$row['course1']."</td>";
-              echo "<td scope='row'>".$row['course2']."</td>";
-              echo "<td scope='row'>".$row['university']."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".($pageNum + 1)."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".$row['name']."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".$row['course1']."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".$row['course2']."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".$row['university']."</td>";
+              echo "<td style='".$bold_tag.$background_tag."' scope='row'>".$row['gender']."</td>";
             echo "</tr>";
 
             $pageNum = $pageNum + 1;

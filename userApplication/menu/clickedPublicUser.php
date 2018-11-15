@@ -66,6 +66,14 @@
                 </td>
             </tr>
             <tr>
+              <th>&nbsp;&nbsp;Gender</th>
+              <td class="memberinput">
+                <?php
+                  echo '<textfield>'.$row['gender'].'</textfield>';
+                 ?>
+              </td>
+            </tr>
+            <tr>
                 <th class="">&nbsp;&nbsp;Tel</th>
                 <td>
                   <?php

@@ -27,7 +27,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" custom-toggle="dropdown-over" style="color:#ffffff;font-size:16px;">
             member
           </a>
-          <div class="dropdown-menu" style="min-width:150x;" align="center">
+          <div class="dropdown-menu" style="min-width:150px;" align="center">
             <div align="center">
               <?php
                 session_start();
@@ -64,6 +64,14 @@
                     echo '<textfield>'.$row['name'].'</textfield>';
                    ?>
                 </td>
+            </tr>
+            <tr>
+              <th>&nbsp;&nbsp;Gender</th>
+              <td class="memberinput">
+                <?php
+                  echo '<textfield>'.$row['gender'].'</textfield>';
+                 ?>
+              </td>
             </tr>
             <tr>
                 <th class="">&nbsp;&nbsp;Tel</th>

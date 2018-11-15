@@ -4,11 +4,19 @@
 
     function registerTeacher($id, $password, $name, $tel1, $tel2, $tel3
     , $univ, $major, $degree, $career, $course1, $course2
-    , $sido1, $gugun1, $sido2, $gugun2, $aboutme){
+    , $sido1, $gugun1, $sido2, $gugun2, $aboutme, $pub_key, $gender, $isCheck){
 
       if ($id == ""){
         echo '<script type="text/javascript">
               alert("Please insert ID");
+              history.back();
+              </script>';
+        return;
+      }
+
+      if ($isCheck == 0){
+        echo '<script type="text/javascript">
+              alert("Please check key");
               history.back();
               </script>';
         return;
@@ -94,6 +102,14 @@
         return;
       }
 
+      if ($gender == ""){
+        echo '<script type="text/javascript">
+              alert("Please insert gender");
+              history.back();
+              </script>';
+        return;
+      }
+
       $password = password_hash($password, PASSWORD_DEFAULT);
 
       include("../config.php");
@@ -104,11 +120,11 @@
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO teacher (id, password, name, tel1, tel2, tel3
         , university, major, degree, career, course1, course2
-        , sido1, gugun1, sido2, gugun2, about)";
+        , sido1, gugun1, sido2, gugun2, about, pub_key, gender)";
       $insertSql = $insertSql." VALUES('$id', '$password', '$name'
       , '$tel1', '$tel2', '$tel3'
       , '$univ', '$major', '$degree', '$career', '$course1', '$course2'
-      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$aboutme')";
+      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$aboutme', '$pub_key', '$gender')";
 
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
@@ -126,11 +142,19 @@
     }
 
     function registerStudent($id, $password, $name, $tel1, $tel2, $tel3, $school
-    , $course1, $course2, $sido1, $gugun1, $sido2, $gugun2, $aboutme){
+    , $course1, $course2, $sido1, $gugun1, $sido2, $gugun2, $aboutme, $pub_key, $gender, $isCheck){
 
       if ($id == ""){
         echo '<script type="text/javascript">
               alert("Please insert ID");
+              history.back();
+              </script>';
+        return;
+      }
+
+      if ($isCheck == 0){
+        echo '<script type="text/javascript">
+              alert("Please check key");
               history.back();
               </script>';
         return;
@@ -217,11 +241,11 @@
 
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO student (id, password, name, tel1, tel2, tel3
-        , school, course1, course2, sido1, gugun1, sido2, gugun2, about)";
+        , school, course1, course2, sido1, gugun1, sido2, gugun2, about, pub_key, gender)";
 
       $insertSql = $insertSql." VALUES('$id', '$password', '$name'
       , '$tel1', '$tel2', '$tel3', '$school', '$course1', '$course2'
-      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$aboutme')";
+      , '$sido1', '$gugun1', '$sido2', '$gugun2', '$aboutme', '$pub_key', '$gender')";
 
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">

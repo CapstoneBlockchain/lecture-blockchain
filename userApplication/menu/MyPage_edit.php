@@ -47,6 +47,10 @@
 
 
 <div id="content" align="center">
+  <div class="sub-title" align="left" style="padding-bottom:30px;">
+    <h3 style="font-weight:bold;">MyPage</h4>
+  </div>
+
   <ul class="nav nav-tabs">
     <li ><a href="MyPage.php" style="color:#3a3f44;">Information</a></li>
     <li class="active"><a href="MyPage_edit.php" style="color:#3a3f44;">Edit</a></li>

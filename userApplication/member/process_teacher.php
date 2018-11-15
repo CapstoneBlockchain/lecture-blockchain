@@ -22,11 +22,14 @@
   $sido2 = $_POST['sido2'];
   $gugun2 = $_POST['gugun2'];
   $aboutme = $_POST['aboutme'];
+  $pub_key = $_POST['pub_key'];
+  $gender = $_POST['gender'];
+  $isCheck = $_POST['isCheck'];
 
   $memberController = new memberController;
 
   $memberController->registerTeacher($id, $password, $name, $tel1, $tel2, $tel3
   , $univ, $major, $degree, $career, $course1, $course2
-  , $sido1, $gugun1, $sido2, $gugun2, $aboutme);
+  , $sido1, $gugun1, $sido2, $gugun2, $aboutme, $pub_key, $gender, $isCheck);
 
  ?>

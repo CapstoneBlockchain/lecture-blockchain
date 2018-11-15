@@ -47,6 +47,10 @@
 
 
 <div id="content" align="center">
+  <div class="sub-title" align="left" style="padding-bottom:30px;">
+    <h3 style="font-weight:bold;">Requests</h4>
+  </div>
+
     <ul class="nav nav-tabs">
       <li><a href="Requests.php" style="color:#3a3f44;">Match</a></li>
       <li class="active"><a href="#" style="color:#3a3f44;">Counsel</a></li>
@@ -60,6 +64,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Course 1</th>
                 <th scope="col">Course 2</th>
+                <th scope="col">Gender</th>
               </tr>
             </thead>
             <tbody>
@@ -81,6 +86,7 @@
                     echo "<td scope='row'>".$row['name']."</td>";
                     echo "<td scope='row'>".$row['course1']."</td>";
                     echo "<td scope='row'>".$row['course2']."</td>";
+                    echo "<td scope='row'>".$row['gender']."</td>";
                   echo "</tr>";
 
                   $pageNum = $pageNum + 1;

@@ -545,4 +545,3 @@ function loadDegree(id, degree) {
     document.getElementById(id).value = degree;
 }
 
-
