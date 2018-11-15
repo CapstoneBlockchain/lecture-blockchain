@@ -9,6 +9,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -27,6 +29,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -50,6 +54,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "INSERT INTO lookup (to_id, to_position, from_id, from_position)";
       $from_position = $_SESSION['userPossition'];
@@ -77,6 +82,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $from_position = $_SESSION['userPossition'];
       $sql = "SELECT * FROM wait_request WHERE to_id = '$to_id' and from_id = '$from_id' and type = '$type' and from_position = '$from_position'";
 
@@ -133,6 +140,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $userId = $_SESSION['userId'];
       $sql = "SELECT * FROM lookup WHERE from_id = '$userId' and to_id = '$id'";
 
@@ -148,6 +157,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "SELECT time FROM complete_request WHERE teacher_id = '$teacher_id' and student_id = '$student_id' and type = '$type'";
 
@@ -174,6 +184,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $sql = "SELECT * FROM review WHERE teacher_id = '$teacher_id' and student_id = '$student_id' and type = '$type'";
 
       $result = $mysqli->query($sql);
@@ -188,6 +200,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $sql = "SELECT * FROM review WHERE teacher_id = '$teacher_id'";
 
       $result = $mysqli->query($sql);
@@ -202,6 +216,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+      
       $sql = "SELECT COUNT(*) AS total FROM $position WHERE 1";
 
       $result = $mysqli->query($sql);

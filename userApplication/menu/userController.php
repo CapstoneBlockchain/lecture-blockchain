@@ -66,6 +66,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $mysqli->set_charset('utf8');
       $insertSql = "UPDATE teacher SET name = '$name', tel1 = '$tel1'
       , tel2 = '$tel2', tel3 = '$tel3', university = '$univ'
@@ -142,6 +144,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $mysqli->set_charset('utf8');
       $insertSql = "UPDATE student SET name = '$name', tel1 = '$tel1'

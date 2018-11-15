@@ -9,6 +9,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
@@ -34,6 +35,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
@@ -64,6 +66,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "DELETE FROM wait_request WHERE to_id = '$to_id' and from_id = '$from_id' and type = '$type' and to_position = '$to_position'";
 
@@ -83,6 +86,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "INSERT INTO complete_request (student_id, teacher_id, type, time)";
       $date = date("Y-m-d H:i:s");
@@ -101,6 +105,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "SELECT COUNT(*) AS total FROM wait_request WHERE to_id = '$id' and to_position = '$position' and type = '$type'";
 

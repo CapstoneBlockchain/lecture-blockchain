@@ -17,6 +17,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $checkSql = "SELECT id FROM teacher WHERE id = '".$id."'";
       $result = $mysqli->query($checkSql);
@@ -98,6 +99,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO teacher (id, password, name, tel1, tel2, tel3
         , university, major, degree, career, course1, course2
@@ -136,6 +139,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $checkSql = "SELECT id FROM student WHERE id = '".$id."'";
       $result = $mysqli->query($checkSql);
@@ -209,6 +213,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $mysqli->set_charset('utf8');
       $insertSql = "INSERT INTO student (id, password, name, tel1, tel2, tel3
@@ -243,6 +248,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $user_id = $_POST['id'];
       $user_pw = $_POST['password'];
@@ -278,6 +284,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $user_id = $_POST['id'];
       $user_pw = $_POST['password'];

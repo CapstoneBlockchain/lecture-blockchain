@@ -8,6 +8,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -32,6 +34,8 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
+
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -60,6 +64,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $id = $_SESSION['userId'];
 

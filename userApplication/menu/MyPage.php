@@ -64,6 +64,7 @@
                     include("../config.php");
 
                     $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+                    $mysqli->query("SET NAMES utf8");
 
                     $sql = "SELECT * FROM ".$_SESSION['userPossition']." WHERE id = '".$_SESSION['userId']."'";
                     $result = $mysqli->query($sql);
