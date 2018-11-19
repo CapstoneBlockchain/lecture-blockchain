@@ -16,6 +16,12 @@
       $sql = "INSERT INTO $table (id, time)";
       $sql = $sql." VALUES('$id', '$time')";
 
+      include("CoinController.php");
+
+      $coinController = new CoinController;
+
+      $coinController->register($id, $position, "bold", 0);
+
       if ($mysqli->query($sql)){
         echo '<script type="text/javascript">
               alert("Success.");
@@ -48,6 +54,12 @@
       $sql = "INSERT INTO $table (id, color, time)";
       $sql = $sql." VALUES('$id', '$color', '$time')";
 
+      include("CoinController.php");
+
+      $coinController = new CoinController;
+
+      $coinController->register($id, $position, "background", 0);
+
       if ($mysqli->query($sql)){
         echo '<script type="text/javascript">
               alert("Success.");
@@ -69,6 +81,14 @@
 
       $row = $result->fetch_row();
       $time = date("Y-m-d H:i:s");
+
+      include("CoinController.php");
+
+      $coinController = new CoinController;
+
+      $position = $_SESSION['userPossition'];
+
+      $coinController->register($id, $position, "today", 0);
 
       if ($row[0]){
         $coin = $coin + $row[0];

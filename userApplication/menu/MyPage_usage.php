@@ -59,6 +59,61 @@
     <li class="active"><a href="MyPage_usage.php" style="color:#3a3f44;">Usage History</a></li>
   </ul>
 
+
+  <div id="request_table" align="center">
+    <table class="search-table table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">index</th>
+          <th scope="col">Item</th>
+          <th scope="col">Coin</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          if (isset($_GET['pageNum'])){
+            $pageNum = $_GET['pageNum'];
+          } else {
+            $pageNum = 0;
+          }
+
+          include("CoinController.php");
+          $coinController = new CoinController;
+
+          $position = $_SESSION['userPossition'];
+          $id = $_SESSION['userId'];
+
+          $result = $coinController->load($id, $position, $pageNum);
+          $pageNum = $pageNum * 20;
+
+          while ($row = $result->fetch_assoc()){
+            echo "<tr>";
+              echo "<td scope='row'>".($pageNum + 1)."</td>";
+              echo "<td scope='row'>".$row['item']."</td>";
+              echo "<td scope='row'>".$row['coin']."</td>";
+              echo "<td scope='row'>".$row['time']."</td>";
+            echo "</tr>";
+
+            $pageNum = $pageNum + 1;
+          }
+         ?>
+      </tbody>
+    </table>
+
+    <div class="text-center">
+      <ul class="pagination">
+        <?php
+          $count = $coinController->count($id, $position);
+          $count = $count / 21;
+          $a = 0;
+          while ($a <= $count){
+            echo '<li><a href="?pageNum='.$a.'" style="color:black;">'.($a + 1).'</a></li>';
+            $a = $a + 1;
+          }
+         ?>
+      </ul>
+    </div>
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
