@@ -66,6 +66,14 @@
 
       $sql = $sql." VALUES('$to_id', '$to_position', '$from_id', '$from_position')";
 
+      $mysqli->query($sql);
+
+      include('CoinController.php');
+
+      $coinController = new CoinController;
+
+      $coinController->register($from_id, $from_position, "reading", 0);
+
       if ($mysqli->query($sql)){
         echo '<script type="text/javascript">
               alert("Success.");
