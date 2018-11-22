@@ -290,7 +290,7 @@ function reward(address,type){
 
 			message = web3.eth.contract(abi).at(contractAddress);
 
-			if(type=="completeMatching"){
+			if(type=="matching"){
 				message.completeMatching.sendTransaction(address, function(error, transactionHash) {
 					if(error) {
 						alert(error);
@@ -299,7 +299,7 @@ function reward(address,type){
 					}
 				});
 			}
-			else if(type == "counsel"){
+			else if(type == "counseling"){
 				message.counsel.sendTransaction(address, function(error, transactionHash) {
 					if(error) {
 						alert(error);
