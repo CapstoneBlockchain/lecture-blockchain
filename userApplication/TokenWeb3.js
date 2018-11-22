@@ -423,6 +423,7 @@ $(document).ready(function(){
 	window.viewContact = viewContact;
 	window.reward = reward;
 	window.review = review;
+	window.checkUsable = checkUsable;
 
 });
 
@@ -458,7 +459,7 @@ function newMember(){
 					alert(error);
 				}else {
 					alert(transactionHash);
-					
+
 		      location.href="../index.html";
 				}
 			});
