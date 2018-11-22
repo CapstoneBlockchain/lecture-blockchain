@@ -104,14 +104,14 @@
         $row_t = $result_t->fetch_assoc();
       }
 
-      if ($result){
+      if ($row = $result->fetch_assoc()){
         $pub_key = $row_t['pub_key'];
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              reward('.$pub_key.', '.$type.');
+              reward('.$pub_key.', "'.$type.'");
               </script>';
       } else {
         echo '<script type="text/javascript">
