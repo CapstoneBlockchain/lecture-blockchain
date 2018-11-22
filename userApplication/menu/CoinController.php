@@ -5,6 +5,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $time = date("Y-m-d H:i:s");
 
@@ -19,6 +20,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $minNum = $pageNum * 20;
       $maxNum = $minNum + 20;
 
@@ -35,6 +37,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "SELECT COUNT(*) AS total FROM coin_usage WHERE id = '$id' and position = '$position'";
       $result = $mysqli->query($sql);

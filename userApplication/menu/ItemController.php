@@ -8,6 +8,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $time = date("Y-m-d H:i:s");
 
@@ -46,6 +47,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $time = date("Y-m-d H:i:s");
 
@@ -76,6 +78,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $sql= "SELECT coin FROM today WHERE id='$id'";
       $result = $mysqli->query($sql);
 
@@ -108,6 +111,7 @@
       include("config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $sql = "SELECT * FROM teacher WHERE 1 ORDER BY id DESC";
 
       $result = $mysqli->query($sql);
@@ -125,6 +129,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $table = $position."_bold";
 
       $sql = "SELECT * FROM $table WHERE id='$id'";
@@ -143,6 +148,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $table = $position."_color";
 
       $sql = "SELECT * FROM $table WHERE id='$id'";
@@ -161,6 +167,7 @@
       include("config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $minNum = 0;
       $maxNum = 9;
 
@@ -176,6 +183,7 @@
       include("config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $i = 0;
       $minNum = 0;
@@ -199,6 +207,7 @@
       include("config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
       $userId = $_SESSION['userId'];
       $sql = "SELECT * FROM lookup WHERE from_id = '$userId' and to_id = '$id'";
       $result = $mysqli->query($sql);
@@ -213,6 +222,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql = "SELECT MAX(coin) FROM today";
 
@@ -231,6 +241,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql= "SELECT coin FROM today WHERE id='$id'";
       $result = $mysqli->query($sql);
@@ -248,6 +259,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql_t = "SELECT * FROM teacher_bold WHERE 1";
       $result_t = $mysqli->query($sql_t);
@@ -293,6 +305,7 @@
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $sql_s = "SELECT * FROM student_bold WHERE 1";
       $result_s = $mysqli->query($sql_s);
@@ -338,6 +351,7 @@
       include("config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
+      $mysqli->query("SET NAMES utf8");
 
       $current_time = date("Y-m-d");
 
