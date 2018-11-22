@@ -261,10 +261,14 @@
           //세션에 정보 저장
 
           if (password_verify($user_pw, $row[0])){
+            // echo "<script type='text/javascript' src='../TokenWeb3.js' charset='utf-8'></script>
+            //       <script type='text/javascript' charset='utf-8'>getUserToken();</script>";
+
             $_SESSION['userId'] = $_POST['id'];
             $_SESSION['userPossition'] = "teacher";
             $_SESSION['userName'] = $row[1];
             Header("Location:../MainPage.php");
+
           } else {
             echo '<script type="text/javascript">
                   alert("Wrong Password.");

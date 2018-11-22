@@ -1,8 +1,5 @@
-//document.write("<script type='text/javascript' src='../web3.js/dist/web3.js'><"+"/script>");
-document.write("<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>");
-
-var contractAddress = '0xd7d60c48c5b0e70841c99bf4bb3549c8c1732812';
-var abi = [
+var myContractAddress = '0xd7d60c48c5b0e70841c99bf4bb3549c8c1732812';
+var myAbi = [
 	{
 		"constant": false,
 		"inputs": [
@@ -145,43 +142,273 @@ var abi = [
 		"type": "function"
 	}
 ];
-var message;
 
-if (typeof web3 !== 'undefined') {
-  web3 = new Web3(web3.currentProvider);
-} else {
-  alert("Install Metamask!!");
-}
+$(document).ready(function(){
+	function getUserToken(){
 
-var myAccount;
-web3.eth.getAccounts(function(err, accounts){
-      if (err != null) {
-        alert("error");
-      }
-      else if (accounts.length == 0) {
-        alert("MetaMask is locked");
-      }
-      else {
-        myAccount = accounts[0];
-        alert("계정 : "+accounts[0]);
-        web3.eth.defaultAccount = myAccount;
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
 
-        message = web3.eth.contract(abi).at(contractAddress);
-        message.newMember.sendTransaction({
-            from: myAccount,
-        }, function(error, transactionHash) {
-            if(error) {
-                alert(error);
-            }else {
-                alert(transactionHash);
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
 
-                // message.getUserToken(function(err, result){
-                //   alert(result);
-                // });
-            }
-        });
-      }
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.getUserToken(function(err, result){
+					alert(result);
+				});
+			}
+		});
+	}
+
+	function getUserAccount(){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				alert(myAccount);
+				return myAccount;
+			}
+		});
+	}
+
+	function newMember(){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.newMember.sendTransaction({
+					from: myAccount,
+				}, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+			}
+		});
+	}
+
+	function buyItem(cost){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.useItem.sendTransaction(cost, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+			}
+		});
+	}
+
+	function viewContact(){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.inqueryInfo.sendTransaction({
+					from:myAccount,
+				}, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+			}
+		});
+	}
+
+	function reward(address,type){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				if(type=="completeMatching"){
+					message.completeMatching.sendTransaction(address, function(error, transactionHash) {
+						if(error) {
+							alert(error);
+						}else {
+							alert(transactionHash);
+						}
+					});
+				}
+				else if(type == "counsel"){
+					message.counsel.sendTransaction(address, function(error, transactionHash) {
+						if(error) {
+							alert(error);
+						}else {
+							alert(transactionHash);
+						}
+					});
+				}
+
+			}
+		});
+	}
+
+	function review(address,score){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.evaluate.sendTransaction(address,score, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+
+			}
+		});
+	}
+
+	window.getUserToken = getUserToken;
+	window.getUserAccount = getUserAccount;
+	window.newMember = newMember;
+	window.buyItem = buyItem;
+	window.viewContact = viewContact;
+	window.reward = reward;
+	window.review = review;
+
 });
-
-
-alert("finish");

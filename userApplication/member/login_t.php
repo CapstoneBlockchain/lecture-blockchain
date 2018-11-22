@@ -11,4 +11,6 @@
   $memberController = new memberController;
 
   $memberController->logIn_teacher($id, $password);
+
+    
  ?>
