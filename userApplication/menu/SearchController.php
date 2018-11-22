@@ -78,7 +78,7 @@
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              viewContact('.$pageNum.', '.$to_position.');
+              viewContact("pageNum='.$pageNum.'&position='.$to_position.'");
               </script>';
       } else {
         echo '<script type="text/javascript">

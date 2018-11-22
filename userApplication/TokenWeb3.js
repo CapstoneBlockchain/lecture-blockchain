@@ -315,7 +315,7 @@ $(document).ready(function(){
 
 });
 
-function viewContact(pageNum, to_position){
+function viewContact(pageNum){
 	var contractAddress = myContractAddress;
 	var abi = myAbi;
 	var message;
@@ -347,7 +347,7 @@ function viewContact(pageNum, to_position){
 					alert(error);
 				}else {
 					alert(transactionHash);
-					location.href="clickedPublicUser.php?pageNum="+pageNum+"&position="+to_position+"";
+					location.href="clickedPublicUser.php?"+pageNum;
 				}
 			});
 		}

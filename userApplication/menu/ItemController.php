@@ -98,8 +98,8 @@
       $coinController->register($id, $position, "today", 0);
 
       if ($row[0]){
-        $coin1 = $coin + $row[0];
-        $sql = "UPDATE today SET id = '$id', time = '$time', coin = $coin1 WHERE id = '$id'";
+        $coin = $coin + $row[0];
+        $sql = "UPDATE today SET id = '$id', time = '$time', coin = $coin WHERE id = '$id'";
         $result = $mysqli->query($sql);
       } else {
         $sql = "INSERT INTO today (id, time, coin) VALUES('$id', '$time', $coin)";
