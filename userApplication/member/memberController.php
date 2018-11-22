@@ -129,12 +129,12 @@
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="../index.html"
+              newMember();
+              location.href="../index.html";
               </script>';
       }else{
         echo '<script type="text/javascript">
               alert("Fail.");
-
               </script>';
         // history.back();
       }
@@ -250,7 +250,8 @@
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="../index.html"
+              newMember();
+              location.href="../index.html";
               </script>';
       }else{
         echo '<script type="text/javascript">
