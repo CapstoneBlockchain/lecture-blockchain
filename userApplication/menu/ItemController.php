@@ -23,10 +23,11 @@
 
       if ($mysqli->query($sql)){
         $coinController->register($id, $position, "bold", 2);
+        echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
               buyItem(2);
-              location.href="MyPage_coin.php";
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -62,10 +63,11 @@
 
       if ($mysqli->query($sql)){
         $coinController->register($id, $position, "background", 2);
+        echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
               buyItem(2);
-              location.href="MyPage_coin.php";
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -101,9 +103,11 @@
         $sql = "INSERT INTO today (id, time, coin) VALUES('$id', '$time', $coin)";
         $result = $mysqli->query($sql);
       }
+      echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+      echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
       echo '<script type="text/javascript">
             alert("Success.");
-            location.href="MyPage_coin.php";
+            buyItem('.$coin.');
             </script>';
     }
 
@@ -311,7 +315,7 @@
       $result_s = $mysqli->query($sql_s);
 
       while ($row_s = $result_s->fetch_assoc()){
-        $time = $row_t['time'];
+        $time = $row_s['time'];
         $week = strtotime("+1 week");
         $current_time = date("Y-m-d H:i:s");
         $time_week = date("Y-m-d H:i:s", $week);
@@ -330,7 +334,7 @@
       $result_s = $mysqli->query($sql_s);
 
       while ($row_s = $result_s->fetch_assoc()){
-        $time = $row_t['time'];
+        $time = $row_s['time'];
         $week = strtotime("+1 week");
         $current_time = date("Y-m-d H:i:s");
         $time_week = date("Y-m-d H:i:s", $week);

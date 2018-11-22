@@ -155,16 +155,17 @@
             </tr>
     </table>
     <div class="">
+      <?php
+      if ($_SESSION['userPossition'] != $_GET['position']){
+        ?>
       <table class="table-borderless">
         <tr>
           <td>
             <?php
-            if ($_SESSION['userPossition'] != $_GET['position']){
-              $pageNum = $_GET['pageNum'];
-              echo '<input id="reading_button" type="button" class="btn-dark btn" value="Reading" disabled onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
+            $pageNum = $_GET['pageNum'];
+            echo '<input id="reading_button" type="button" class="btn-dark btn" value="Reading" disabled onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
 
-            }
-            ?>
+             ?>
           </td>
           <td>
             &nbsp;
@@ -174,6 +175,7 @@
           </td>
         </tr>
       </table>
+      <?php } ?>
     </div>
   </div>
 

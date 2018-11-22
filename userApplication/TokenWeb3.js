@@ -258,42 +258,6 @@ $(document).ready(function(){
 		});
 	}
 
-	function buyItem(cost){
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				message.useItem.sendTransaction(cost, function(error, transactionHash) {
-					if(error) {
-						alert(error);
-					}else {
-						alert(transactionHash);
-					}
-				});
-			}
-		});
-	}
-
 	function viewContact(){
 		var contractAddress = myContractAddress;
 		var abi = myAbi;
@@ -419,13 +383,49 @@ $(document).ready(function(){
 
 	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
-	window.buyItem = buyItem;
 	window.viewContact = viewContact;
 	window.reward = reward;
 	window.review = review;
 	window.checkUsable = checkUsable;
 
 });
+
+function buyItem(cost){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			message.useItem.sendTransaction(cost, function(error, transactionHash) {
+				if(error) {
+					alert(error);
+				}else {
+					alert(transactionHash);
+					location.href="MyPage_coin.php";
+				}
+			});
+		}
+	});
+}
 
 function newMember(){
 	var contractAddress = myContractAddress;
