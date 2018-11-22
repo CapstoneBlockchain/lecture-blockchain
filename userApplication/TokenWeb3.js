@@ -346,51 +346,51 @@ $(document).ready(function(){
 		});
 	}
 
-	function review(address,score){
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				message.evaluate.sendTransaction(address,score, function(error, transactionHash) {
-					if(error) {
-						alert(error);
-					}else {
-						alert(transactionHash);
-					}
-				});
-
-			}
-		});
-	}
-
 	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
 	window.viewContact = viewContact;
 	window.reward = reward;
-	window.review = review;
 	window.checkUsable = checkUsable;
 
 });
+
+function review(address,score){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			message.evaluate.sendTransaction(address,score, function(error, transactionHash) {
+				if(error) {
+					alert(error);
+				}else {
+					alert(transactionHash);
+					location.href="MyPage_matched.php";
+				}
+			});
+
+		}
+	});
+}
 
 function buyItem(cost){
 	var contractAddress = myContractAddress;

@@ -180,11 +180,21 @@
       $review_time = date("Y-m-d H:i:s");
       $sql = $sql." VALUES('$student_id', '$teacher_id', '$type', '$complete_time', '$review_time', $grade, '$content')";
 
+
       $result = $mysqli->query($sql);
+
+      $sql = "SELECT * FROM teacher WHERE id = '$teacher_id'";
+
+      $pub_key = $mysqli->query($sql);
+      $pub_key_row = $pub_key->fetch_assoc();
       if ($result){
+        $pub = $pub_key_row['pub_key'];
+        echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+        echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="MyPage_matched.php";
+              review('.$pub.', '.$grade.');
               </script>';
       } else {
         return false;
