@@ -246,52 +246,14 @@ $(document).ready(function(){
 
 				var inputAccount = document.getElementById("key").value;
 
-				if (myAccount == inputAccount){
+				if (myAccount == inputAccount.toLowerCase()){
 					document.getElementById("check").value = 1;
-					document.getElementById("key").disabled = true;
 					alert("Key Check Success.");
 				}
 				else{
 					document.getElementById("check").value = 0;
+					alert("Key Check Fail.");
 				}
-			}
-		});
-	}
-
-	function newMember(){
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				message.newMember.sendTransaction({
-					from: myAccount,
-				}, function(error, transactionHash) {
-					if(error) {
-						alert(error);
-					}else {
-						alert(transactionHash);
-					}
-				});
 			}
 		});
 	}
@@ -457,10 +419,49 @@ $(document).ready(function(){
 
 	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
-	window.newMember = newMember;
 	window.buyItem = buyItem;
 	window.viewContact = viewContact;
 	window.reward = reward;
 	window.review = review;
 
 });
+
+function newMember(){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			message.newMember.sendTransaction({
+				from: myAccount,
+			}, function(error, transactionHash) {
+				if(error) {
+					alert(error);
+				}else {
+					alert(transactionHash);
+					
+		      location.href="../index.html";
+				}
+			});
+		}
+	});
+}
