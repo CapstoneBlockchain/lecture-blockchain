@@ -67,7 +67,10 @@
           <td style="width:40%;"><h4>Bolding</h4></td>
           <td style="width:40%;"></td>
           <td>
-            <input type="submit" name="" value="Buy" class="btn-dark btn">
+            <input id="bolding_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
+          </td>
+          <td>
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="checkUsable('bolding_submit', 2)">
           </td>
         </tr>
         <tr>
@@ -92,7 +95,10 @@
             <option value="skyblue" style="background:skyblue;"></option>
           </select></td>
           <td>
-            <input type="submit" name="" value="Buy" class="btn-dark btn">
+            <input id="background_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
+          </td>
+          <td>
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="checkUsable('background_submit', 2)">
           </td>
         </tr>
         <tr>
@@ -116,15 +122,18 @@
        <input type="hidden" name="type" value="today">
        <table class="table-borderless" style="width:70%;">
          <tr>
-           <td colspan="2"><h4 style="font-weight:bold;">Actions:<?php echo $max; ?>  Mine:<?php echo $mine; ?></h4></td>
+           <td colspan="2"><h4 style="font-weight:bold;">Auctions:<?php echo $max; ?>  Mine:<?php echo $mine; ?></h4></td>
          </tr>
          <tr>
            <td style="width:40%;"><h4>Today's teacher</h4></td>
            <td style="width:40%;">
-             <input type="text" name="coin" value="" class="form-control" style="width:100px;">
+             <input id="today_text" type="text" name="coin" value="" class="form-control" style="width:100px;">
            </td>
            <td>
-             <input type="submit" name="" value="Buy" class="btn-dark btn">
+             <input id="today_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
+           </td>
+           <td>
+             <input type="button" name="" value="Check" class="btn-dark btn" onclick="checkUsable('today_submit', 0)">
            </td>
          </tr>
          <tr>
@@ -141,5 +150,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script type="text/javascript" src="background.js"></script>
+<script type="text/javascript" src="../TokenWeb3.js"></script>
 </body>
 </html>

@@ -155,12 +155,25 @@
             </tr>
     </table>
     <div class="">
-      <?php
-        if ($_SESSION['userPossition'] != $_GET['position']){
-          $pageNum = $_GET['pageNum'];
-          echo '<input type="button" class="btn-dark" value="Reading" onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
-        }
-       ?>
+      <table class="table-borderless">
+        <tr>
+          <td>
+            <?php
+            if ($_SESSION['userPossition'] != $_GET['position']){
+              $pageNum = $_GET['pageNum'];
+              echo '<input id="reading_button" type="button" class="btn-dark btn" value="Reading" disabled onclick="location.href=\'readingUser.php?to_id='.$row['id'].'&pageNum='.$pageNum.'\'">';
+
+            }
+            ?>
+          </td>
+          <td>
+            &nbsp;
+          </td>
+          <td>
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="checkUsable('reading_button', 2)">
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 

@@ -20,11 +20,11 @@
 
       $coinController = new CoinController;
 
-      $coinController->register($id, $position, "bold", 0);
-
       if ($mysqli->query($sql)){
+        $coinController->register($id, $position, "bold", 2);
         echo '<script type="text/javascript">
               alert("Success.");
+              buyItem(2);
               location.href="MyPage_coin.php";
               </script>';
       } else {
@@ -58,11 +58,11 @@
 
       $coinController = new CoinController;
 
-      $coinController->register($id, $position, "background", 0);
-
       if ($mysqli->query($sql)){
+        $coinController->register($id, $position, "background", 2);
         echo '<script type="text/javascript">
               alert("Success.");
+              buyItem(2);
               location.href="MyPage_coin.php";
               </script>';
       } else {

@@ -177,6 +177,50 @@ $(document).ready(function(){
 		});
 	}
 
+	function checkUsable(itemName, tokenNum){
+		var contractAddress = myContractAddress;
+		var abi = myAbi;
+		var message;
+		var myAccount;
+
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		} else {
+			alert("Install Metamask!!");
+		}
+
+		web3.eth.getAccounts(function(err, accounts){
+			if (err != null) {
+				alert("error");
+			}
+			else if (accounts.length == 0) {
+				alert("MetaMask is locked");
+			}
+			else {
+				myAccount = accounts[0];
+				web3.eth.defaultAccount = myAccount;
+
+				message = web3.eth.contract(abi).at(contractAddress);
+
+				message.getUserToken(function(err, result){
+					if(itemName != "today_submit" && result < tokenNum){
+						alert("You don't have enough token");
+					}
+					else if (itemName == "today_submit"){
+						if (Number(document.getElementById("today_text").value) > result){
+							alert("You don't have enough token");
+						} else {
+							document.getElementById(itemName).disabled = false;
+						}
+					}
+					else{
+						document.getElementById(itemName).disabled = false;
+					}
+				});
+			}
+		});
+	}
+
 	function getUserAccount(){
 		var contractAddress = myContractAddress;
 		var abi = myAbi;
@@ -200,8 +244,16 @@ $(document).ready(function(){
 				myAccount = accounts[0];
 				web3.eth.defaultAccount = myAccount;
 
-				alert(myAccount);
-				return myAccount;
+				var inputAccount = document.getElementById("key").value;
+
+				if (myAccount == inputAccount){
+					document.getElementById("check").value = 1;
+					document.getElementById("key").disabled = true;
+					alert("Key Check Success.");
+				}
+				else{
+					document.getElementById("check").value = 0;
+				}
 			}
 		});
 	}

@@ -39,9 +39,9 @@
           <tr>
             <th>&nbsp;&nbsp;Key</th>
             <td class="memberinput">
-              <input type="text" class="form-control-sm" name="pub_key" value="">
-              <input type="button" name="key_check" value="check" onclick="">
-              <input type="hidden" name="isCheck" value=0>
+              <input id="key" type="text" class="form-control-sm" name="pub_key" value="">
+              <input type="button" name="key_check" value="check" onclick="getUserAccount()">
+              <input id="check" type="hidden" name="isCheck" value=0>
             </td>
           </tr>
           <tr>
@@ -271,6 +271,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.4.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../TokenWeb3.js"></script>
 <script src="Student.js"></script>
 </body>
 </html>
