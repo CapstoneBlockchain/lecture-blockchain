@@ -79,7 +79,11 @@
             }
 
             $pageNum = $itemController->getPageNum($row['id']);
-            echo "<tr onclick='location.href=\"menu/".$pageName."?pageNum=".$pageNum."&position=teacher\";'>";
+            if ($row['name'] == ""){
+              echo "<tr>";
+            } else {
+              echo "<tr onclick='location.href=\"menu/".$pageName."?pageNum=".$pageNum."&position=teacher\";'>";
+            }
             if ($i == 1){
               echo "<td align='center' style='width:70px;height:70px;vertical-align:middle;'><img src='img/1st.png' style='width:60px;height:60px;'></td>";
             } else if ($i == 2){
