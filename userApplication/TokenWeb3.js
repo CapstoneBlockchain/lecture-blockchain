@@ -260,60 +260,58 @@ $(document).ready(function(){
 		});
 	}
 
-	function reward(address,type){
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				if(type=="completeMatching"){
-					message.completeMatching.sendTransaction(address, function(error, transactionHash) {
-						if(error) {
-							alert(error);
-						}else {
-							alert(transactionHash);
-						}
-					});
-				}
-				else if(type == "counsel"){
-					message.counsel.sendTransaction(address, function(error, transactionHash) {
-						if(error) {
-							alert(error);
-						}else {
-							alert(transactionHash);
-						}
-					});
-				}
-
-			}
-		});
-	}
-
 	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
-	window.reward = reward;
 	window.checkUsable = checkUsable;
 
 });
+function reward(address,type){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			if(type=="completeMatching"){
+				message.completeMatching.sendTransaction(address, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+			}
+			else if(type == "counsel"){
+				message.counsel.sendTransaction(address, function(error, transactionHash) {
+					if(error) {
+						alert(error);
+					}else {
+						alert(transactionHash);
+					}
+				});
+			}
+
+		}
+	});
+}
 
 function viewContact(pageNum){
 	var contractAddress = myContractAddress;

@@ -82,7 +82,7 @@
       }
     }
 
-    function completeRequest($teacher_id, $student_id, $type){
+    function completeRequest($teacher_id, $student_id,$position, $type){
       include("../config.php");
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
@@ -94,10 +94,29 @@
 
       $result = $mysqli->query($sql);
 
-      if ($result){
-        return $result;
+      if ($position == "teacher"){
+        $sql_t = "SELECT * FROM teacher WHERE id = '$teacher_id'";
+        $result_t = $mysqli->query($sql_t);
+        $row_t = $result_t->fetch_assoc();
       } else {
-        return false;
+        $sql_t = "SELECT * FROM student WHERE id = '$student_id'";
+        $result_t = $mysqli->query($sql_t);
+        $row_t = $result_t->fetch_assoc();
+      }
+
+      if ($result){
+        $pub_key = $row_t['pub_key'];
+        echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+        echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
+        echo '<script type="text/javascript">
+              alert("Success.");
+              reward('.$pub_key.', '.$type.');
+              </script>';
+      } else {
+        echo '<script type="text/javascript">
+              alert("Fail.");
+              </script>';
       }
     }
 

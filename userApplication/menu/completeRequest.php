@@ -20,5 +20,5 @@
     $student_id = $_SESSION['userId'];
   }
 
-  $requestsController->completeRequest($teacher_id, $student_id, $type);
+  $requestsController->completeRequest($teacher_id, $student_id, $_SESSION['userPossition'], $type);
  ?>
