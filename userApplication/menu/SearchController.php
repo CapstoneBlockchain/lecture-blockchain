@@ -107,9 +107,9 @@
       }
 
       if ($_SESSION['userPossition'] == 'teacher'){
-        $sql = "SELECT * FROM complete_request WHERE student_id = '$to_id' and teacher_id = '$from_id' and type = '$type' and from_position = '$from_position'";
+        $sql = "SELECT * FROM complete_request WHERE student_id = '$to_id' and teacher_id = '$from_id' and type = '$type'";
       } else {
-        $sql = "SELECT * FROM complete_request WHERE teacher_id = '$to_id' and student_id = '$from_id' and type = '$type' and from_position = '$from_position'";
+        $sql = "SELECT * FROM complete_request WHERE teacher_id = '$to_id' and student_id = '$from_id' and type = '$type'";
       }
 
       $result = $mysqli->query($sql);

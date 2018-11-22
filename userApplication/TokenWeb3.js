@@ -296,6 +296,7 @@ function reward(address,type){
 						alert(error);
 					}else {
 						alert(transactionHash);
+						location.href="Requests.php";
 					}
 				});
 			}
@@ -305,6 +306,7 @@ function reward(address,type){
 						alert(error);
 					}else {
 						alert(transactionHash);
+						location.href="Requests.php";
 					}
 				});
 			}
