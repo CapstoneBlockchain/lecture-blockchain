@@ -260,44 +260,6 @@ $(document).ready(function(){
 		});
 	}
 
-	function viewContact(){
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				message.inqueryInfo.sendTransaction({
-					from:myAccount,
-				}, function(error, transactionHash) {
-					if(error) {
-						alert(error);
-					}else {
-						alert(transactionHash);
-					}
-				});
-			}
-		});
-	}
-
 	function reward(address,type){
 		var contractAddress = myContractAddress;
 		var abi = myAbi;
@@ -348,11 +310,49 @@ $(document).ready(function(){
 
 	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
-	window.viewContact = viewContact;
 	window.reward = reward;
 	window.checkUsable = checkUsable;
 
 });
+
+function viewContact(pageNum, to_position){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			message.inqueryInfo.sendTransaction({
+				from:myAccount,
+			}, function(error, transactionHash) {
+				if(error) {
+					alert(error);
+				}else {
+					alert(transactionHash);
+					location.href="clickedPublicUser.php?pageNum="+pageNum+"&position="+to_position+"";
+				}
+			});
+		}
+	});
+}
 
 function review(address,score){
 	var contractAddress = myContractAddress;
@@ -429,42 +429,6 @@ function buyItem(cost){
 	});
 }
 
-function buyReading(cost, pageNum, to_position){
-	var contractAddress = myContractAddress;
-	var abi = myAbi;
-	var message;
-	var myAccount;
-
-	if (typeof web3 !== 'undefined') {
-		web3 = new Web3(web3.currentProvider);
-	} else {
-		alert("Install Metamask!!");
-	}
-
-	web3.eth.getAccounts(function(err, accounts){
-		if (err != null) {
-			alert("error");
-		}
-		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
-		}
-		else {
-			myAccount = accounts[0];
-			web3.eth.defaultAccount = myAccount;
-
-			message = web3.eth.contract(abi).at(contractAddress);
-
-			message.useItem.sendTransaction(cost, function(error, transactionHash) {
-				if(error) {
-					alert(error);
-				}else {
-					alert(transactionHash);
-					location.href="clickedPublicUser.php?pageNum="+pageNum+"&position="+to_position+"";
-				}
-			});
-		}
-	});
-}
 
 function newMember(){
 	var contractAddress = myContractAddress;
