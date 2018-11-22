@@ -72,12 +72,15 @@
 
       $coinController = new CoinController;
 
-      $coinController->register($from_id, $from_position, "reading", 0);
 
       if ($mysqli->query($sql)){
+        $coinController->register($from_id, $from_position, "reading", 0);
+        echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
+        echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+        echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              location.href="clickedPublicUser.php?pageNum='.$pageNum.'&position='.$to_position.'";
+              buyReading(2, '.$pageNum.', '.$to_position.');
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -225,7 +228,7 @@
 
       $mysqli = new mysqli($IP, $NAME, $PASSWORD, $DB);
       $mysqli->query("SET NAMES utf8");
-      
+
       $sql = "SELECT COUNT(*) AS total FROM $position WHERE 1";
 
       $result = $mysqli->query($sql);
