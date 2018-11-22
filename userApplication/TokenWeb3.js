@@ -210,6 +210,7 @@ $(document).ready(function(){
 						if (Number(document.getElementById("today_text").value) > result){
 							alert("You don't have enough token");
 						} else {
+							alert("Success ".itemName." check.");
 							document.getElementById(itemName).disabled = false;
 						}
 					}
