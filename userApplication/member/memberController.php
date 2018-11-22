@@ -252,8 +252,7 @@
       if($mysqli->query($insertSql)){
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
-        echo '<script type="text/javascript" src="../TokenWeb3.js">
-              </script>';
+        echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
                 newMember();
               </script>';
