@@ -187,6 +187,7 @@
 
       $pub_key = $mysqli->query($sql);
       $pub_key_row = $pub_key->fetch_assoc();
+
       if ($result){
         $pub = $pub_key_row['pub_key'];
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
