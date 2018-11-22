@@ -113,7 +113,7 @@
       }
 
       $result = $mysqli->query($sql);
-      if ($result){
+      if ($row = $result->fetch_assoc()){
         echo '<script type="text/javascript">
               alert("Already complete Request.");
               location.href="../MainPage.php";
