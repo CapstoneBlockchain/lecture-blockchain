@@ -144,38 +144,6 @@ var myAbi = [
 ];
 
 $(document).ready(function(){
-	function getUserToken(){
-
-		var contractAddress = myContractAddress;
-		var abi = myAbi;
-		var message;
-		var myAccount;
-
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-		} else {
-			alert("Install Metamask!!");
-		}
-
-		web3.eth.getAccounts(function(err, accounts){
-			if (err != null) {
-				alert("error");
-			}
-			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
-			}
-			else {
-				myAccount = accounts[0];
-				web3.eth.defaultAccount = myAccount;
-
-				message = web3.eth.contract(abi).at(contractAddress);
-
-				message.getUserToken(function(err, result){
-					alert(result);
-				});
-			}
-		});
-	}
 
 	function checkUsable(itemName, tokenNum){
 		var contractAddress = myContractAddress;
@@ -260,11 +228,79 @@ $(document).ready(function(){
 		});
 	}
 
-	window.getUserToken = getUserToken;
 	window.getUserAccount = getUserAccount;
 	window.checkUsable = checkUsable;
 
 });
+
+function getUserAccountLogin(){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			if (myAccount == inputAccount.toLowerCase()){
+				document.getElementById("metamask").value = myAccount;
+			}
+			else{
+				
+			}
+		}
+	});
+}
+
+function getUserToken(){
+	var contractAddress = myContractAddress;
+	var abi = myAbi;
+	var message;
+	var myAccount;
+
+	if (typeof web3 !== 'undefined') {
+		web3 = new Web3(web3.currentProvider);
+	} else {
+		alert("Install Metamask!!");
+	}
+
+	web3.eth.getAccounts(function(err, accounts){
+		if (err != null) {
+			alert("error");
+		}
+		else if (accounts.length == 0) {
+			alert("MetaMask is locked");
+		}
+		else {
+			myAccount = accounts[0];
+			web3.eth.defaultAccount = myAccount;
+
+			message = web3.eth.contract(abi).at(contractAddress);
+
+			message.getUserToken(function(err, result){
+				var string = document.getElementById("myCoin").innerHTML;
+				var replacedString = string.replace("", result);
+				document.getElementById("myCoin").innerHTML = replacedString;
+				//document.getElementById("myCoin").value.replace("", presult);
+			});
+		}
+	});
+}
+
 function reward(address,type){
 	var contractAddress = myContractAddress;
 	var abi = myAbi;

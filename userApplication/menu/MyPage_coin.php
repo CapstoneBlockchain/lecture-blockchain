@@ -28,12 +28,24 @@
             member
           </a>
           <div class="dropdown-menu" style="min-width:150px;" align="center">
-            <div align="center">
+            <div align="center" style="padding-top:5px;padding-bottom:10px;">
               <?php
                 session_start();
-                echo "<textfield>".$_SESSION['userName']."  </textfield>";
-                echo "<textfield>".$_SESSION['userPossition']."</textfield>";
                ?>
+               <table class="table-borderless">
+                <tr>
+                  <th>Name</th>
+                  <td><textfield><?php echo $_SESSION['userName']; ?></textfield></td>
+                </tr>
+                <tr>
+                  <th>Position&nbsp;&nbsp;</th>
+                  <td><textfield><?php echo $_SESSION['userPossition']; ?></textfield></td>
+                </tr>
+                <tr>
+                  <th>Coin</th>
+                  <td><textfield id='myCoin'></textfield></td>
+                </tr>
+               </table>
             </div>
             <div align="center">
                 <input type="button" value="Log-out" class="btn-warning" onclick="location.href='logout.php'">
@@ -74,7 +86,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="2"><h5>This item can be used for a week.</h5></td>
+          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 10)</h5></td>
         </tr>
       </table>
     </form>
@@ -102,7 +114,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="2"><h5>This item can be used for a week.</h5></td>
+          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 10)</h5></td>
         </tr>
       </table>
     </form>
@@ -151,5 +163,10 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script type="text/javascript" src="background.js"></script>
 <script type="text/javascript" src="../TokenWeb3.js"></script>
+<script type="text/javascript">
+$(window).on("load",function(){
+  getUserToken();
+});
+</script>
 </body>
 </html>

@@ -28,12 +28,24 @@
             member
           </a>
           <div class="dropdown-menu" style="min-width:150px;" align="center">
-            <div align="center">
+            <div align="center" style="padding-top:5px;padding-bottom:10px;">
               <?php
                 session_start();
-                echo "<textfield>".$_SESSION['userName']."  </textfield>";
-                echo "<textfield>".$_SESSION['userPossition']."</textfield>";
                ?>
+               <table class="table-borderless">
+                <tr>
+                  <th>Name</th>
+                  <td><textfield><?php echo $_SESSION['userName']; ?></textfield></td>
+                </tr>
+                <tr>
+                  <th>Position&nbsp;&nbsp;</th>
+                  <td><textfield><?php echo $_SESSION['userPossition']; ?></textfield></td>
+                </tr>
+                <tr>
+                  <th>Coin</th>
+                  <td><textfield id='myCoin'></textfield></td>
+                </tr>
+               </table>
             </div>
             <div align="center">
                 <input type="button" value="Log-out" class="btn-warning" onclick="location.href='./menu/logout.php'">
@@ -109,9 +121,16 @@
   </div>
 </div>
 
-<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="TokenWeb3.js"></script>
+<script type="text/javascript">
+$(window).on("load",function(){
+  getUserToken();
+});
+</script>
 </body>
 </html>

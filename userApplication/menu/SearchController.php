@@ -72,7 +72,7 @@
 
 
       if ($mysqli->query($sql)){
-        $coinController->register($from_id, $from_position, "reading", 2);
+        $coinController->register($from_id, $from_position, "reading", 1);
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';

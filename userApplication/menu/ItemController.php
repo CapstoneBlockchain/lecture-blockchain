@@ -22,13 +22,13 @@
       $coinController = new CoinController;
 
       if ($mysqli->query($sql)){
-        $coinController->register($id, $position, "bold", 2);
+        $coinController->register($id, $position, "bold", 10);
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              buyItem(2);
+              buyItem(10);
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -63,13 +63,13 @@
       $coinController = new CoinController;
 
       if ($mysqli->query($sql)){
-        $coinController->register($id, $position, "background", 2);
+        $coinController->register($id, $position, "background", 10);
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Success.");
-              buyItem(2);
+              buyItem(10);
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -95,7 +95,7 @@
 
       $position = $_SESSION['userPossition'];
 
-      $coinController->register($id, $position, "today", 0);
+      $coinController->register($id, $position, "today", $coin);
 
       if ($row[0]){
         $coin = $coin + $row[0];
