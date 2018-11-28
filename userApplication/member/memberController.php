@@ -335,21 +335,18 @@
       if($row = $result->fetch_row()){
           //세션에 정보 저장
 
-          $load_metamask = "'".$row[2]."'";
-
-          echo '<script type="text/javascript">
-                alert("'.$metamask.'");
-                history.back();
-                </script>';
+          $load_metamask = $row[2];
+          $metamask = strtolower($metamask);
+          $load_metamask = strtolower($load_metamask);
 
           if (password_verify($user_pw, $row[0])){
 
-            if (strcmp($metamask, $load_metamask)){
+            if (!strcmp($metamask, $load_metamask)){
               $_SESSION['userId'] = $_POST['id'];
               $_SESSION['userPossition'] = "teacher";
               $_SESSION['userName'] = $row[1];
               echo '<script type="text/javascript">
-                    alert("계정의 Key와 브라우저의 Key가 일치하지 않습니다.");
+                    alert("로그인을 성공하였습니다.");
                     location.href="../MainPage.php";
                     </script>';
             } else {
@@ -389,20 +386,17 @@
       if($row = $result->fetch_row()){
           //세션에 정보 저장
 
-          $load_metamask = "'".$row[2]."'";
-
-          echo '<script type="text/javascript">
-                alert("'.$metamask.'");
-                history.back();
-                </script>';
+          $load_metamask = $row[2];
+          $metamask = strtolower($metamask);
+          $load_metamask = strtolower($load_metamask);
 
           if (password_verify($user_pw, $row[0])){
-            if (strcmp($metamask, $load_metamask)){
+            if (!strcmp($metamask, $load_metamask)){
               $_SESSION['userId'] = $_POST['id'];
               $_SESSION['userPossition'] = "student";
               $_SESSION['userName'] = $row[1];
               echo '<script type="text/javascript">
-                    alert("계정의 Key와 브라우저의 Key가 일치하지 않습니다.");
+                    alert("로그인을 성공하였습니다.");
                     location.href="../MainPage.php";
                     </script>';
             } else {

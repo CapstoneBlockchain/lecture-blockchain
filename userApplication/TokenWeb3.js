@@ -154,15 +154,15 @@ $(document).ready(function(){
 		if (typeof web3 !== 'undefined') {
 			web3 = new Web3(web3.currentProvider);
 		} else {
-			alert("Install Metamask!!");
+			alert("MetaMask를 설치해주세요.");
 		}
 
 		web3.eth.getAccounts(function(err, accounts){
 			if (err != null) {
-				alert("error");
+				alert(err);
 			}
 			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
+				alert("MetaMask 로그인을 해주세요.");
 			}
 			else {
 				myAccount = accounts[0];
@@ -172,18 +172,18 @@ $(document).ready(function(){
 
 				message.getUserToken(function(err, result){
 					if(itemName != "today_submit" && result < tokenNum){
-						alert("You don't have enough token");
+						alert("코인이 부족합니다.");
 					}
 					else if (itemName == "today_submit"){
 						if (Number(document.getElementById("today_text").value) > result){
-							alert("You don't have enough token");
+							alert("코인이 부족합니다.");
 						} else {
-							alert("Success "+itemName+" check.");
+							alert(""+itemName+" 체크를 성공하였습니다.");
 							document.getElementById(itemName).disabled = false;
 						}
 					}
 					else{
-						alert("Success "+itemName+" check.");
+						alert(""+itemName+" 체크를 실패하였습니다.");
 						document.getElementById(itemName).disabled = false;
 					}
 				});
@@ -200,15 +200,15 @@ $(document).ready(function(){
 		if (typeof web3 !== 'undefined') {
 			web3 = new Web3(web3.currentProvider);
 		} else {
-			alert("Install Metamask!!");
+			alert("MetaMask를 설치해주세요.");
 		}
 
 		web3.eth.getAccounts(function(err, accounts){
 			if (err != null) {
-				alert("error");
+				alert(err);
 			}
 			else if (accounts.length == 0) {
-				alert("MetaMask is locked");
+				alert("MetaMask 로그인을 해주세요.");
 			}
 			else {
 				myAccount = accounts[0];
@@ -218,11 +218,11 @@ $(document).ready(function(){
 
 				if (myAccount == inputAccount.toLowerCase()){
 					document.getElementById("check").value = 1;
-					alert("Key Check Success.");
+					alert("Key Check를 성공하였습니다.");
 				}
 				else{
 					document.getElementById("check").value = 0;
-					alert("Key Check Fail.");
+					alert("Key Check를 실패하였습니다.");
 				}
 			}
 		});
@@ -242,15 +242,15 @@ function getUserAccountLogin(){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -270,15 +270,15 @@ function getUserToken(){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -304,15 +304,15 @@ function reward(address,type){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -325,7 +325,7 @@ function reward(address,type){
 					if(error) {
 						alert(error);
 					}else {
-						alert(transactionHash);
+						alert("트랜잭션: " + transactionHash);
 						location.href="Requests.php";
 					}
 				});
@@ -335,7 +335,7 @@ function reward(address,type){
 					if(error) {
 						alert(error);
 					}else {
-						alert(transactionHash);
+						alert("트랜잭션: " + transactionHash);
 						location.href="Requests.php";
 					}
 				});
@@ -354,15 +354,15 @@ function viewContact(pageNum){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -376,7 +376,7 @@ function viewContact(pageNum){
 				if(error) {
 					alert(error);
 				}else {
-					alert(transactionHash);
+					alert("트랜잭션: " + transactionHash);
 					location.href="clickedPublicUser.php?"+pageNum;
 				}
 			});
@@ -393,15 +393,15 @@ function review(address,score){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -413,7 +413,7 @@ function review(address,score){
 				if(error) {
 					alert(error);
 				}else {
-					alert(transactionHash);
+					alert("트랜잭션: " + transactionHash);
 					location.href="MyPage_matched.php";
 				}
 			});
@@ -431,15 +431,15 @@ function buyItem(cost){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -451,7 +451,7 @@ function buyItem(cost){
 				if(error) {
 					alert(error);
 				}else {
-					alert(transactionHash);
+					alert("트랜잭션: " + transactionHash);
 					location.href="MyPage_coin.php";
 				}
 			});
@@ -469,15 +469,15 @@ function newMember(){
 	if (typeof web3 !== 'undefined') {
 		web3 = new Web3(web3.currentProvider);
 	} else {
-		alert("Install Metamask!!");
+		alert("MetaMask를 설치해주세요.");
 	}
 
 	web3.eth.getAccounts(function(err, accounts){
 		if (err != null) {
-			alert("error");
+			alert(err);
 		}
 		else if (accounts.length == 0) {
-			alert("MetaMask is locked");
+			alert("MetaMask 로그인을 해주세요.");
 		}
 		else {
 			myAccount = accounts[0];
@@ -491,7 +491,7 @@ function newMember(){
 				if(error) {
 					alert(error);
 				}else {
-					alert(transactionHash);
+					alert("트랜잭션: " + transactionHash);
 
 		      location.href="../index.html";
 				}
