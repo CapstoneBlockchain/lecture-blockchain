@@ -82,7 +82,7 @@
             <input id="bolding_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
           </td>
           <td>
-            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('bolding_submit', 2)">
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('bolding_submit', 10)">
           </td>
         </tr>
         <tr>
@@ -110,7 +110,7 @@
             <input id="background_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
           </td>
           <td>
-            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('background_submit', 2)">
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('background_submit', 10)">
           </td>
         </tr>
         <tr>

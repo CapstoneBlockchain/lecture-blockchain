@@ -256,12 +256,7 @@ function getUserAccountLogin(){
 			myAccount = accounts[0];
 			web3.eth.defaultAccount = myAccount;
 
-			if (myAccount == inputAccount.toLowerCase()){
-				document.getElementById("metamask").value = myAccount;
-			}
-			else{
-				
-			}
+			document.getElementById("metamask").value = String(myAccount);
 		}
 	});
 }
@@ -295,7 +290,6 @@ function getUserToken(){
 				var string = document.getElementById("myCoin").innerHTML;
 				var replacedString = string.replace("", result);
 				document.getElementById("myCoin").innerHTML = replacedString;
-				//document.getElementById("myCoin").value.replace("", presult);
 			});
 		}
 	});

@@ -77,12 +77,12 @@
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("열람을 성공하였습니다.");
               viewContact("pageNum='.$pageNum.'&position='.$to_position.'");
               </script>';
       } else {
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("열람을 실패하였습니다.");
               </script>';
       }
     }
@@ -99,7 +99,7 @@
       $result = $mysqli->query($sql);
       if ($row = $result->fetch_assoc()){
         echo '<script type="text/javascript">
-              alert("Already wait Request.");
+              alert("'.$type.' 신청을 이미 하였습니다.");
               location.href="../MainPage.php";
               </script>';
 
@@ -115,7 +115,7 @@
       $result = $mysqli->query($sql);
       if ($row = $result->fetch_assoc()){
         echo '<script type="text/javascript">
-              alert("Already complete Request.");
+              alert("'.$type.' 이력이 이미 있습니다.");
               location.href="../MainPage.php";
               </script>';
         return;
@@ -134,12 +134,12 @@
 
       if ($mysqli->query($sql)){
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("'.$type.' 신청을 성공했습니다.");
               location.href="../MainPage.php";
               </script>';
       } else {
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("'.$type.' 신청을 실패했습니다.");
               </script>';
       }
 
@@ -187,12 +187,12 @@
       $pub_key_row = $pub_key->fetch_assoc();
 
       if ($result){
-        $pub = $pub_key_row['pub_key'];
+        $pub = "'".$pub_key_row['pub_key']."'";
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("리뷰 작성을 성공하였습니다..");
               review('.$pub.', '.$grade.');
               </script>';
       } else {

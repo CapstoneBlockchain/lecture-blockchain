@@ -73,7 +73,7 @@
       $result = $mysqli->query($sql);
 
       if ($result){
-        
+
       } else {
         return false;
       }
@@ -102,17 +102,17 @@
       }
 
       if ($result){
-        $pub_key = $row_t['pub_key'];
+        $pub_key = "'".$row_t['pub_key']."'";
         echo "<script src='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>";
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Success");
+              alert("'.$type.'을 성공했습니다.");
               reward('.$pub_key.', "'.$type.'");
               </script>';
       } else {
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("'.$type.'을 실패했습니다.");
               </script>';
       }
     }

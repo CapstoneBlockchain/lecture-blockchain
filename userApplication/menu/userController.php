@@ -9,7 +9,7 @@
 
       if ($name == ""){
         echo '<script type="text/javascript">
-              alert("Please insert name");
+              alert("이름을 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -17,7 +17,7 @@
 
       if ($tel1 == "::Choice::" || $tel2 == "" || $tel3 == ""){
         echo '<script type="text/javascript">
-              alert("Please insert tel number");
+              alert("전화번호를 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -25,7 +25,7 @@
 
       if ($univ == "" || $major == "" || $degree == "::Choice::"){
         echo '<script type="text/javascript">
-              alert("Please insert Final Education");
+              alert("최종 학력을 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -33,7 +33,15 @@
 
       if ($career == ""){
         echo '<script type="text/javascript">
-              alert("Please insert career");
+              alert("경력을 입력해주세요.");
+              history.back();
+              </script>';
+        return;
+      }
+
+      if ($course1 == "" || $course2 == ""){
+        echo '<script type="text/javascript">
+              alert("희망 과목을 선택해주세요.");
               history.back();
               </script>';
         return;
@@ -41,7 +49,7 @@
 
       if ($course1 == $course2){
         echo '<script type="text/javascript">
-              alert("Hope course should not be same");
+              alert("중복된 희망 과목을 선택하셨습니다.");
               history.back();
               </script>';
         return;
@@ -49,7 +57,7 @@
 
       if ($sido1 == $sido2 && $gugun1 == $gugun2){
         echo '<script type="text/javascript">
-              alert("Hope area should not be same");
+              alert("중복된 희망 지역을 선택하셨습니다.");
               history.back();
               </script>';
         return;
@@ -57,7 +65,7 @@
 
       if ($aboutme == ""){
         echo '<script type="text/javascript">
-              alert("Please insert about me");
+              alert("자기소개를 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -79,12 +87,12 @@
 
       if($mysqli->query($insertSql)){
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("회원정보 수정을 성공하였습니다.");
               location.href="MyPage.php"
               </script>';
       }else{
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("회원정보 수정을 실패하였습니다.");
               history.back();
               </script>';
       }
@@ -96,7 +104,7 @@
 
       if ($name == ""){
         echo '<script type="text/javascript">
-              alert("Please insert name");
+              alert("이름을 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -104,7 +112,7 @@
 
       if ($tel1 == "::Choice::" || $tel2 == "" || $tel3 == ""){
         echo '<script type="text/javascript">
-              alert("Please insert tel number");
+              alert("전화번호를 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -112,7 +120,15 @@
 
       if ($school == "::Choice::"){
         echo '<script type="text/javascript">
-              alert("Please insert school year");
+              alert("학교를 입력해주세요.");
+              history.back();
+              </script>';
+        return;
+      }
+
+      if ($course1 == "" || $course2 == ""){
+        echo '<script type="text/javascript">
+              alert("희망 과목을 선택해주세요.");
               history.back();
               </script>';
         return;
@@ -120,7 +136,7 @@
 
       if ($course1 == $course2){
         echo '<script type="text/javascript">
-              alert("Hope course should not be same");
+              alert("중복된 희망 과목을 선택하셨습니다.");
               history.back();
               </script>';
         return;
@@ -128,7 +144,7 @@
 
       if ($sido1 == $sido2 && $gugun1 == $gugun2){
         echo '<script type="text/javascript">
-              alert("Hope area should not be same");
+              alert("중복된 희망 지역을 선택하셨습니다.");
               history.back();
               </script>';
         return;
@@ -136,7 +152,7 @@
 
       if ($aboutme == ""){
         echo '<script type="text/javascript">
-              alert("Please insert about me");
+              alert("자기소개를 입력해주세요.");
               history.back();
               </script>';
         return;
@@ -157,12 +173,12 @@
       if($mysqli->query($insertSql)){
 
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("회원정보 수정을 성공하였습니다.");
               location.href="MyPage.php"
               </script>';
       }else{
         echo '<script type="text/javascript">
-              alert("Fail");
+              alert("회원정보 수정을 실패하였습니다.");
               history.back();
               </script>';
       }

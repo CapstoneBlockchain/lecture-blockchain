@@ -7,8 +7,9 @@
 
   $id = $_POST['id'];
   $password = $_POST['password'];
+  $metamask = "\'".$_POST['metamask']."\'";
 
   $memberController = new memberController;
 
-  $memberController->logIn_student($id, $password);
+  $memberController->logIn_student($id, $password, $metamask);
  ?>

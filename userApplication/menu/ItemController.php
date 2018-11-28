@@ -27,12 +27,12 @@
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("Bolding 구매에 성공하였습니다.");
               buyItem(10);
               </script>';
       } else {
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("Bolding 구매에 실패하였습니다.");
               </script>';
       }
     }
@@ -40,7 +40,7 @@
     function registerBackground($position, $id, $color){
       if ($color == ""){
         echo '<script type="text/javascript">
-              alert("Please select background.");
+              alert("배경색을 선택해주세요.");
               </script>';
         return;
       }
@@ -68,12 +68,12 @@
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Success.");
+              alert("배경색 구매에 성공하였습니다.");
               buyItem(10);
               </script>';
       } else {
         echo '<script type="text/javascript">
-              alert("Fail.");
+              alert("배경색 구매에 실패하였습니다.");
               </script>';
       }
     }
@@ -110,7 +110,7 @@
       echo '<script type="text/javascript" src="../TokenWeb3.js">
             </script>';
       echo '<script type="text/javascript">
-            alert("Success.");
+            alert("오늘의 교사에 등록하였습니다.");
             buyItem('.$coin.');
             </script>';
     }
