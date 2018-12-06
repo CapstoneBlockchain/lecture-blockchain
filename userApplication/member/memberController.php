@@ -340,7 +340,6 @@
           $load_metamask = strtolower($load_metamask);
 
           if (password_verify($user_pw, $row[0])){
-
             if (!strcmp($metamask, $load_metamask)){
               $_SESSION['userId'] = $_POST['id'];
               $_SESSION['userPossition'] = "teacher";

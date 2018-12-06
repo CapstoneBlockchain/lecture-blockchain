@@ -7,7 +7,7 @@
 
   $id = $_POST['id'];
   $password = $_POST['password'];
-  $metamask = "'".$_POST['metamask']."'";
+  $metamask = $_POST['metamask'];
 
   $memberController = new memberController;
 

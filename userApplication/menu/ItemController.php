@@ -27,7 +27,7 @@
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("Bolding 구매에 성공하였습니다.");
+              alert("Bolding 구매를 위해 트랜잭션을 전송하였습니다.");
               buyItem(10);
               </script>';
       } else {
@@ -68,7 +68,7 @@
         echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
-              alert("배경색 구매에 성공하였습니다.");
+              alert("배경색 구매를 위해 트랜잭션을 전송하였습니다.");
               buyItem(10);
               </script>';
       } else {
@@ -110,7 +110,7 @@
       echo '<script type="text/javascript" src="../TokenWeb3.js">
             </script>';
       echo '<script type="text/javascript">
-            alert("오늘의 교사에 등록하였습니다.");
+            alert("오늘의 교사에 등록하기 위해 트랜잭션을 전송였습니다.");
             buyItem('.$coin.');
             </script>';
     }

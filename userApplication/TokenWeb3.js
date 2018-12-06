@@ -74,6 +74,26 @@ var myAbi = [
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "useItem",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -106,26 +126,6 @@ var myAbi = [
 		],
 		"name": "Use",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_price",
-				"type": "uint256"
-			}
-		],
-		"name": "useItem",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"constant": true,
@@ -171,8 +171,13 @@ $(document).ready(function(){
 				message = web3.eth.contract(abi).at(contractAddress);
 
 				message.getUserToken(function(err, result){
-					if(itemName != "today_submit" && result < tokenNum){
+					if(itemName != "today_submit" && tokenNum <= result){
+						alert(""+itemName+" 체크를 성공하였습니다.");
+						document.getElementById(itemName).disabled = false;
+					}
+					else if(itemName != "today_submit" && tokenNum > result){
 						alert("코인이 부족합니다.");
+						document.getElementById(itemName).disabled = true;
 					}
 					else if (itemName == "today_submit"){
 						if (Number(document.getElementById("today_text").value) > result){
@@ -184,7 +189,7 @@ $(document).ready(function(){
 					}
 					else{
 						alert(""+itemName+" 체크를 실패하였습니다.");
-						document.getElementById(itemName).disabled = false;
+						document.getElementById(itemName).disabled = true;
 					}
 				});
 			}
