@@ -82,11 +82,11 @@
             <input id="bolding_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
           </td>
           <td>
-            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('bolding_submit', 10)">
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('bolding_submit', 5)">
           </td>
         </tr>
         <tr>
-          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 10)</h5></td>
+          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 5)</h5></td>
         </tr>
       </table>
     </form>
@@ -110,11 +110,11 @@
             <input id="background_submit" type="submit" name="" value="Buy" class="btn-dark btn" disabled>
           </td>
           <td>
-            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('background_submit', 10)">
+            <input type="button" name="" value="Check" class="btn-dark btn" onclick="window.checkUsable('background_submit', 5)">
           </td>
         </tr>
         <tr>
-          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 10)</h5></td>
+          <td colspan="2"><h5>This item can be used for a week. (Required Coin: 5)</h5></td>
         </tr>
       </table>
     </form>

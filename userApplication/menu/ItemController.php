@@ -28,7 +28,7 @@
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("Bolding 구매를 위해 트랜잭션을 전송하였습니다.");
-              buyItem(10);
+              buyItem(5);
               </script>';
       } else {
         echo '<script type="text/javascript">
@@ -69,7 +69,7 @@
         echo '<script type="text/javascript" src="../TokenWeb3.js"></script>';
         echo '<script type="text/javascript">
               alert("배경색 구매를 위해 트랜잭션을 전송하였습니다.");
-              buyItem(10);
+              buyItem(5);
               </script>';
       } else {
         echo '<script type="text/javascript">
